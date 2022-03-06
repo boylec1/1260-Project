@@ -1,9 +1,35 @@
+import java.util.Scanner;
 public class Cutscene
 {
+    private String name;
     // Intro cutscene describing the setting and the goal of the player as well as the exterior of the castle
-    public String cutscene1()
+    public String cutscene1(String name)
     {
-        return "";
+        String  output= "\n" +
+                "It is the year 3000— a time where there is no blue in the sky or green on the ground. \n"+
+                "A time where the Earth is no longer suitable for living creatures.\n" +
+                "All that remains in this world is a society of sentient machines ruled by the iron grip of the Bot Lord.\n"+
+                "No one has ever seen the Bot Lord, but all have seen his evil army that constantly suppresses the good bots of this world.\n"+
+                "\n\n"+
+                "You awake from the pitch black of a deep slumber to a flash of light.\n"+
+                "A loading screen appears in your vision that reads:\n"+
+                "\n\n"+
+                "----------Reboot Complete----------\n"+
+                "Enter your name to access your mission: \n\n";
+
+        Scanner kb = new Scanner(System.in);
+        this.name= kb.nextLine();
+
+        output+= "Good morning,"+ this.name +". \n"+
+                "You have been created to be the savior of all bots.\n" +
+                "Your mission is to defeat the Bot Lord.\n" +
+                "You will find him in the top level of his castle\n"+
+                "Good luck, " +this.name+ ".\n"+
+                "\n\n"+
+                "The loading screen dissolves, and a scene morphs from the darkness"+
+                "-----------------------------------";
+
+        return output;
     }
 
     // Describing the castle interior after defeating the first boss
