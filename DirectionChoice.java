@@ -37,6 +37,30 @@ public class DirectionChoice
     {
         // After entering the castle describe the hallways going
         // left and right and then ask player which direction to go
+        Scanner kb = new Scanner(System.in);
+        System.out.println("Before you lies a great hallway lit only by the sparse crackling torches placed " +
+                "few and far between. Will you travel down the hallways left path, or the right path?");
+
+        String choice = kb.nextLine();
+
+        while(!choice.equalsIgnoreCase("left") && !choice.equalsIgnoreCase("right"))
+        {
+            System.out.println("That is not a valid choice. Time waits for no one; choose your fate.");
+            choice = kb.nextLine();
+        }
+
+        if(choice.equalsIgnoreCase("left"))
+        {
+            System.out.println("Event");
+            //Event event = new Event();
+            //event.event1();
+        }
+        else
+        {
+            System.out.println("Fight Enemy");
+            //Enemy enemy = new Enemy();
+            //enemy.enemy1();
+        }
     }
 
     public void directionChoice2()
