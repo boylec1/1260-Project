@@ -22,8 +22,8 @@ public class DirectionChoice
         {
             System.out.println("You steel yourself and push forward through the door of the castle. You" +
                     " resolve that the Bot Lord will see his end this day.");
-            DirectionChoice initialDirection = new DirectionChoice();
-            initialDirection.directionChoice1();
+            Enemy enemy = new Enemy();
+            enemy.boss1();
         }
         else
         {

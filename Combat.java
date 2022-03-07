@@ -6,6 +6,11 @@ public class Combat {
     private String attackAttribute;
     private String defenseAttribute;
 
+    public Combat()
+    {
+        System.out.println("\n\n===============" + "\nBattle End");
+    }
+
     public Combat(int attackInput, int defenseInput, String attackAttribute, String defenseAttribute)
     {
         // Constructor to set initial values

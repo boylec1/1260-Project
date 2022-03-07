@@ -43,7 +43,7 @@ public class Cutscene
     {
         String  output = "\n" +
                 "Having defeated the foe blocking your path, you journey forth. Pushing open the large wooden doors " +
-                " to the castle, you intrepidly step inside.";
+                "to the castle, you intrepidly step inside.";
         return output;
     }
 
