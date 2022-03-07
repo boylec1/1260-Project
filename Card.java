@@ -7,10 +7,20 @@ public class Card
 
     public Card(String cardName, int cardAttack, int cardDefence, String cardAction)
     {
-
+        this.cardName = cardName;
+        this.cardAttack = cardAttack;
+        this.cardDefence = cardDefence;
+        this.cardAction = cardAction;
     }
 
-    public String toString() {//the toString statement that has what we print
-        return null;
+    public String toString() 
+    {
+        String aCard = "";
+        aCard += "Card Name: " + cardName; // need to be able to generate names, if we're going to have names
+        aCard += "Attack Value: " + cardAttack;
+        aCard += "Defense Value: " + cardDefence;
+        aCard += "Special Action: " + cardAction;
+
+        return aCard;
     }
 }
