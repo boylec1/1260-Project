@@ -15,4 +15,42 @@ public class Enemy
 
         Combat combat = new Combat();
     }
+    
+    public void boss2()
+    {
+        System.out.println(); // Kitchen Boss Description
+
+        System.out.println("\n\nBattle Start" + "\n===============");
+
+        Combat combat = new Combat();
+    }
+    
+    public void boss3()
+    {
+        System.out.println("Standing in front of an open door to a private office is a large bot." +
+                "\nIts polo shirt has pockets with pens sticking out, and its khakis are well-pleated." +
+                "\n\nIt rushes forward shouting and waving TPS reports at you.");
+
+        System.out.println("\n\nBattle Start" + "\n===============");
+
+        Combat combat = new Combat();
+    }
+    
+    public void boss4()
+    {
+        System.out.println();// Serverus Boss Description
+
+        System.out.println("\n\nBattle Start" + "\n===============");
+
+        Combat combat = new Combat();
+    }
+    
+    public void boss5()
+    {
+        System.out.println();// Final Boss Description
+
+        System.out.println("\n\nBattle Start" + "\n===============");
+
+        Combat combat = new Combat();
+    }
 }
