@@ -5,21 +5,21 @@ public class CardGenerator {
     // Fields
     private int cardAttack;
     private int cardDefense;
-    private String defenseAttribute;
+    private String cardAttribute;
     private String cardName;
 
-    public CardGenerator(int cardAttack, int cardDefense)
+    public CardGenerator(int cardAttack, int cardDefense, String cardAttribute, String cardName)
     {
         this.cardAttack = cardAttack;
         this.cardDefense = cardDefense;
-        this.defenseAttribute.equals(defenseAttribute);
-        this.cardName.equals(cardName);
+        this.cardAttribute = cardAttribute;
+        this.cardName = cardName;
     }
 
     public void randomStats()
     {
         Random generator = new Random();
-        // Values are just fill-ins, we'll decided on actual values later when the game gets more built.
+        
         this.cardAttack = generator.nextInt(5) + 1;
         this.cardDefense = generator.nextInt(5) + 1;
     }
