@@ -60,10 +60,7 @@ public class Cutscene
                 "The door creaks open to a scene of utter despair: a clean, well-lit office space. \nYou see row upon " +
                 "ordered-row of small desks made of faux wood, paired with small but ergonomic mesh chairs. " +
                 "\nCountless screens sit upon the desks, casting their evil blue-tinted glows across the room. \n" +
-                "Fluorescent lighting bears down upon the space with a fury. \nStanding in front of an " +
-                "open door to a private office is a large bot. \nIts polo shirt has pockets with pens " +
-                "sticking out, and its khakis are well-pleated." +
-                "\n\nIt rushes forward shouting and waving several blank forms at you.";
+                "Fluorescent lighting bears down upon the space with a fury.";
         
         return output;
     }
