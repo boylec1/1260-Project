@@ -9,7 +9,7 @@ public class Card
     {
         this.cardAttack = cardAttack;
         this.cardDefence = cardDefence;
-        this.cardAction = cardAttribute;
+        this.cardAttribute = cardAttribute;
         this.cardName = cardName;
     }
 
@@ -19,7 +19,7 @@ public class Card
         aCard += "Card Name: " + cardName; // need to be able to generate names, if we're going to have names
         aCard += "Attack Value: " + cardAttack;
         aCard += "Defense Value: " + cardDefence;
-        aCard += "Special Action: " + cardAction;
+        aCard += "Special Action: " + cardAttribute;
 
         return aCard;
     }
