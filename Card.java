@@ -1,16 +1,16 @@
 public class Card
 {
-    private String cardName;
     private int cardAttack;
     private int cardDefence;
-    private String cardAction;
+    private String cardAttribute;
+    private String cardName;
 
-    public Card(String cardName, int cardAttack, int cardDefence, String cardAction)
+    public Card(int cardAttack, int cardDefence, String cardAttribute, String cardName)
     {
-        this.cardName = cardName;
         this.cardAttack = cardAttack;
         this.cardDefence = cardDefence;
-        this.cardAction = cardAction;
+        this.cardAction = cardAttribute;
+        this.cardName = cardName;
     }
 
     public String toString() 
