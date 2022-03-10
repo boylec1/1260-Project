@@ -2,32 +2,35 @@ import java.util.*;
 
 public class DirectionChoice
 {
+    Cutscene cutscenes = new Cutscene();//can use cutscenes describing decision
+
     public void directionChoice0()
     {
         // Choice of opening castle door or turning around and leaving
         Scanner kb = new Scanner(System.in);
-        System.out.println("\nAs the Bot Lord's castle looms before you, you have a decision to make: enter, " +
-                "or leave?");
+        System.out.println("As the Bot Lord's castle looms before you, you have a decision to make: enter, " +
+                "or leave?\n");
 
         String choice = kb.nextLine();
 
         while(!choice.equalsIgnoreCase("enter") && !choice.equalsIgnoreCase("leave"))
         {
-            System.out.println("That is not a valid choice. Time waits for no one; choose your fate.");
+            System.out.println("\nThat is not a valid choice. Time waits for no one; choose your fate.\n");
             choice = kb.nextLine();
         }
 
         if(choice.equalsIgnoreCase("enter"))
         {
-            System.out.println("You steel yourself and push forward through the door of the castle. You" +
+            System.out.println("\nYou steel yourself and push forward through the door of the castle. You" +
                     " resolve that the Bot Lord will see his end this day.");
             Enemy enemy = new Enemy();
             enemy.boss1();
         }
         else
         {
-            System.out.println("Your shoulders slump in resignation and fear. You turn toward " +
-                    "the wasteland to meet a slow end. The Bot Lord will continue unopposed.\n");
+            System.out.println( "\nYour shoulders slump in resignation and fear."+
+                                "You turn toward the wasteland to meet a slow end.\n " +
+                                "The Bot Lord will continue unopposed.\n");
             System.out.println("GAME OVER");
             System.exit(0);
         }
@@ -37,8 +40,8 @@ public class DirectionChoice
         // After entering the castle describe the hallways going
         // left and right and then ask player which direction to go
         Scanner kb = new Scanner(System.in);
-        System.out.println("Before you lies a great hallway lit only by the sparse crackling torches placed " +
-                "few and far between. Will you travel down the hallways left path, or the right path?");
+        System.out.println( "Before you lies a great hallway lit only by the sparse crackling torches placed few and far between. \n\n"+
+                            "Will you travel down the hallways left path, or the right path?\n");
 
         String choice = kb.nextLine();
 
@@ -50,15 +53,24 @@ public class DirectionChoice
 
         if(choice.equalsIgnoreCase("left"))
         {
-            System.out.println("Event");
-            //Event event = new Event();
+            System.out.println("You walk down the path to the left.");
+
+            System.out.println("EVENT");
+            //Event event = new Event(); //event will describe entering a room with an item in it
             //event.event1();
+
+            System.out.println("You exit the room and continue down the hallway.");
+            cutscenes.cutscene3(); // Describes entering the kitchen
+
+            Enemy enemy = new Enemy(); //You fight kitchen boss anyway but at least you got an item first
+            enemy.boss2(); //kitchen boss
         }
         else
         {
-            System.out.println("Fight Enemy");
-            //Enemy enemy = new Enemy();
-            //enemy.boss2();
+            System.out.println("You walk down the path to the right.");
+            cutscenes.cutscene3(); // Describes entering the kitchen
+            Enemy enemy = new Enemy();
+            enemy.boss2(); //kitchen boss
         }
     }
 

@@ -6,22 +6,21 @@ public class Driver
         DirectionChoice direction = new DirectionChoice();
         Enemy enemy = new Enemy();
 
-        System.out.println(cutscenes.cutscene1()); // Intro cutscene
-        System.out.println(cutscenes.enterName()); // Enter name
+        cutscenes.cutscene1(); // Intro cutscene
+        cutscenes.enterName(); // Enter name
         direction.directionChoice0(); // Choice of entering castle or turning around
 
         // Boss fight
 
         System.out.println(cutscenes.cutscene2()); // Entering castle
 
-        System.exit(0); // =======================================================================================
-
         direction.directionChoice1(); // Hallway choice: left or right
 
         // Possible Event
         // Boss fight
+        System.exit(0); // =======================================================================================
 
-        System.out.println(cutscenes.cutscene3()); // Describes entering the kitchen
+
 
         // Boss fight
 
@@ -29,7 +28,7 @@ public class Driver
 
         // Possible Event
 
-        System.out.println(cutscenes.cutscene4()); // Describes the office
+        cutscenes.cutscene4(); // Describes the office
 
         // Boss fight
 
@@ -37,23 +36,19 @@ public class Driver
 
         // Possible Event
 
-        System.out.println(cutscenes.cutscene5()); // Description of going upstairs and hallway
+        cutscenes.cutscene5(); // Description of going upstairs and hallway
         direction.directionChoice4(); // Hallway choice: left, forward, or right
 
         // Possible Event
 
-        System.out.println(cutscenes.cutscene6()); // Description of hallway leading to "Serverus"
+        cutscenes.cutscene6(); // Description of hallway leading to "Serverus"
         direction.directionChoice5(); // "Choice" of opening door to final boss
-        System.out.println(cutscenes.cutscene7()); // Description of final boss room
+        cutscenes.cutscene7(); // Description of final boss room
 
         // Final boss fight
 
-        System.out.println(cutscenes.endCutscene1()); // End of game
+        cutscenes.endCutscene1(); // End of game
 
 
-
-        //boolean goFirst = false;
-        //CoinFlip flip1 = new CoinFlip(goFirst);
-        //System.out.println(flip1.toString());
     }
 }

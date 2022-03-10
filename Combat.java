@@ -6,6 +6,10 @@ public class Combat {
     private String attackAttribute;
     private String defenseAttribute;
 
+    //boolean goFirst = false;
+    //CoinFlip flip1 = new CoinFlip(goFirst);
+    //System.out.println(flip1.toString());
+
     public Combat()
     {
         System.out.println("\n\n===============" + "\nBattle End");
