@@ -1,14 +1,15 @@
+import java.util.Random;
 public class Card
 {
     private int cardAttack;
-    private int cardDefence;
+    private int cardDefense;
     private String cardAttribute;
     private String cardName;
 
-    public Card(int cardAttack, int cardDefence, String cardAttribute, String cardName)
+    public Card(int cardAttack, int cardDefense, String cardAttribute, String cardName)
     {
         this.cardAttack = cardAttack;
-        this.cardDefence = cardDefence;
+        this.cardDefense = cardDefense;
         this.cardAttribute = cardAttribute;
         this.cardName = cardName;
     }
@@ -30,7 +31,7 @@ public class Card
         String aCard = "";
         aCard += "Card Name: " + cardName; // need to be able to generate names, if we're going to have names
         aCard += "Attack Value: " + cardAttack;
-        aCard += "Defense Value: " + cardDefence;
+        aCard += "Defense Value: " + cardDefense;
         aCard += "Special Action: " + cardAttribute;
 
         return aCard;
