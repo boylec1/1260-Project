@@ -25,6 +25,26 @@ public class Card
         
         // this is where we decide on names, will pull from a separate file of names randomly
     }
+    
+    public int getCardAttack()
+    {
+        return cardAttack;
+    }
+
+    public int getCardDefense()
+    {
+        return cardDefense;
+    }
+
+    public String getCardAttribute()
+    {
+        return cardAttribute;
+    }
+
+    public String getCardName()
+    {
+        return cardName;
+    }
 
     public String toString() 
     {
