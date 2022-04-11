@@ -98,4 +98,18 @@ public class Cutscene
     {
         System.out.println("");
     }
+    
+    // Game Over
+    public static void gameOver()
+    {
+        System.out.println("You sway in place, weakness flooding your limbs. The room begins" +
+                " to blur and darken. As your life force fades, you think only of who may be" +
+                " the one to stop the Bot Lord. Your hope for the next is the last thing to " +
+                " leave you.");
+
+        System.out.println("=================================");
+        System.out.println("===========GAME OVER=============");
+        System.out.println("=================================");
+        System.exit(0);
+    }
 }
