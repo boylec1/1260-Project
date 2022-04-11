@@ -1,9 +1,9 @@
 public class Deck
 {
-    private Card[] cards;
+    private ArrayList<Card> cards;
     private int deckCapacity;
     private boolean[] isCardDealt;
-    private int numberOfCards;
+    private int numberOfCards = 0;
 
     public Deck()
     {
@@ -13,10 +13,11 @@ public class Deck
     public Deck(int deckCapacity)
     {
         // Deck constructor sets deckCapacity to parameter
+        this.deckCapacity = deckCapacity;
     }
 
     //getter for cards
-    public Card[] getCards()
+    public ArrayList<Card> getCards()
     {
         return this.cards;
     }
@@ -41,18 +42,19 @@ public class Deck
 
     public void add(Card card)
     {
-        //adds a card to the number of cards in the deck
+        cards.add(card);
     }
 
-    public Card deal(int index)
+    public void dealCard(int index)
     {
         //returns card at index if true
-        return this.cards[index];
+        isCardDealt[index] = true;
     }
 
     public void returnToDeck(int index)
     {
         // sets isCardDealt at an index to false
+        isCardDealt[index] = false;
     }
 
     public void shuffleCards( Card cards)
@@ -63,6 +65,21 @@ public class Deck
     public String toString()
     {
         // returns string output for deck
+
+        for(int i = 0; i < cards.size(); i++)
+        {
+            System.out.println(cards.get(i));
+            if(isCardDealt[i] == true)
+            {
+                System.out.println("This card has been played.");
+            }
+            else
+            {
+                System.out.println("This card is available to play.");
+            }
+            System.out.println();
+        }
+
         return "";
     }
 }
