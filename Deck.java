@@ -70,7 +70,7 @@ public class Deck
         isCardDealt[index] = false;
     }
 
-    public void shuffleCards( Card cards)
+    public void shuffleCards()
     {
         Collections.shuffle(cards);
     }
