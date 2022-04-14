@@ -4,7 +4,7 @@ public class DirectionChoice
 {
     Cutscene cutscenes = new Cutscene();//can use cutscenes describing decision
 
-    public void directionChoice0()
+    public void directionChoice0(Deck playerDeck)
     {
         // Choice of opening castle door or turning around and leaving
         Scanner kb = new Scanner(System.in);
@@ -24,18 +24,21 @@ public class DirectionChoice
             System.out.println("\nYou steel yourself and push forward through the door of the castle. You" +
                     " resolve that the Bot Lord will see his end this day.");
             Enemy enemy = new Enemy();
-            enemy.boss1();
+            enemy.boss1(playerDeck);
         }
         else
         {
             System.out.println( "\nYour shoulders slump in resignation and fear."+
                                 "You turn toward the wasteland to meet a slow end.\n " +
                                 "The Bot Lord will continue unopposed.\n");
-            System.out.println("GAME OVER");
+            System.out.println();
+            System.out.println("=================================");
+            System.out.println("===========GAME OVER=============");
+            System.out.println("=================================");
             System.exit(0);
         }
     }
-    public void directionChoice1()
+    public void directionChoice1(Deck playerDeck)
     {
         // After entering the castle describe the hallways going
         // left and right and then ask player which direction to go
@@ -63,18 +66,18 @@ public class DirectionChoice
             cutscenes.cutscene3(); // Describes entering the kitchen
 
             Enemy enemy = new Enemy(); //You fight kitchen boss anyway but at least you got an item first
-            enemy.boss2(); //kitchen boss
+            enemy.boss2(playerDeck); //kitchen boss
         }
         else
         {
             System.out.println("You walk down the path to the right.");
             cutscenes.cutscene3(); // Describes entering the kitchen
             Enemy enemy = new Enemy();
-            enemy.boss2(); //kitchen boss
+            enemy.boss2(playerDeck); //kitchen boss
         }
     }
 
-    public void directionChoice2()
+    public void directionChoice2(Deck playerDeck)
     {
         // Describe hallways going left and right and then ask player which direction to go
         Scanner kb = new Scanner(System.in);
@@ -97,12 +100,12 @@ public class DirectionChoice
         else
         {
             System.out.println("Fight Enemy");
-            //Enemy enemy = new Enemy();
-            //enemy.boss3();
+            Enemy enemy = new Enemy();
+            enemy.boss3(playerDeck);
         }
     }
 
-    public void directionChoice3()
+    public void directionChoice3(Deck playerDeck)
     {
         // Choice of going up the stairs past the defeated boss or look around the office
         Scanner kb = new Scanner(System.in);
@@ -125,12 +128,12 @@ public class DirectionChoice
         else
         {
             System.out.println("Fight Enemy");
-            //Enemy enemy = new Enemy();
-            //enemy.boss4();
+            Enemy enemy = new Enemy();
+            enemy.boss4(playerDeck);
         }
     }
 
-    public void directionChoice4()
+    public void directionChoice4(Deck playerDeck)
     {
         // Choice of going straight down long hallway, left down another hallway, or right towards a room
         // Left choice leads back to starting choice of left, straight, or right
@@ -160,12 +163,12 @@ public class DirectionChoice
         else
         {
             System.out.println("Fight Enemy");
-            //Enemy enemy = new Enemy();
-            //enemy.boss5();
+            Enemy enemy = new Enemy();
+            enemy.boss5(playerDeck);
         }
     }
 
-    public void directionChoice5()
+    public void directionChoice5(Deck playerDeck)
     {
         // "Choice" of opening the final door to the boss
         // Not an actual choice because you have to fight the boss
@@ -183,8 +186,8 @@ public class DirectionChoice
         if(choice.equalsIgnoreCase("enter"))
         {
             System.out.println("Final Boss Fight");
-            //Enemy enemy = new Enemy();
-            //enemy.finalBoss1();
+            Enemy enemy = new Enemy();
+            enemy.finalBoss(playerDeck);
         }
         else
         {
