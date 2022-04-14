@@ -83,7 +83,9 @@ public class Cutscene
     // Description of final boss room and final boss
     public void cutscene7()
     {
-        System.out.println("");
+        System.out.println("You enter a large room filled with every kind of tech known to you.\n" + 
+                "The room is only lit by the lights of screens and buttons, and in the dim light you see what you have come to defeat.\n" + 
+                "DESCRIPTION OF FINAL BOSS CAUSE IDK WHO IT IS<3");
     }
 
     // Description of Filezilla boss
