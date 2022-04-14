@@ -66,12 +66,7 @@ public class Cutscene
     // Description of going upstairs and hallway
     public void cutscene5()
     {
-        System.out.println("\n" +
-                "After defeating the infamous Will, the computers suddenly started splitting apart. \n" +
-               "The splitting of the computers reveal a dark and mysterious hallway. \n" +
-                "As you travel down the hallway, a sudden flash of red light reveals a winding stairway. \n" +
-                "Approaching the stairway, there is a low, growling sound coming from the top. \n" +
-                "Walking upstairs, there is another hallway and the growling is getting louder.");
+        System.out.println("");;
     }
 
     // Description of hallway leading to "Serverus" boss
