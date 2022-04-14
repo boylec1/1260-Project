@@ -89,19 +89,21 @@ public class Cutscene
     // Description of Filezilla boss
     public void specialCutscene1()
     {
-        System.out.println("");
+        System.out.println("A large figure looms over you, and as you get a closer look you see a large amalgamation of computers and screens, all connected into the central point which you assume is the router.\n" +
+                "It's large screens comes to life as it roars in a broken and glitched cry of rage.");
     }
 
     // Going left three times in hallway leads to consumable event
     public void specialCutscene2()
     {
-        System.out.println("");
+        System.out.println("In going left exactly three times, you start feeling very lucky. You find an item!!");
     }
 
     // End cutscene, "you've defeated the boss and saved the world yayy!!"
     public void endCutscene1()
     {
-        System.out.println("");
+        System.out.println("As the dust clears away, you see that you have defeated the boss\n" + "And you feel a sense of accomplishment wash over you as you know your journey is over\n" +
+                "YOU WIN!!!!!!!!!");
     }
 
     // Game Over
