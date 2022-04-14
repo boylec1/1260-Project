@@ -6,16 +6,16 @@ public class Cutscene
     public void cutscene1()
     {
         System.out.println( "\n" +
-                            "It is the year 3000— a time where there is no blue in the sky or green on the ground. \n"+
-                            "A time where the Earth is no longer suitable for living creatures.\n" +
-                            "All that remains in this world is a society of sentient machines ruled by the iron grip of the Bot Lord.\n"+
-                            "No one has ever seen the Bot Lord, but all have seen his evil army that constantly suppresses the good bots of this world.\n"+
-                            "\n\n"+
-                            "You awake from the pitch black of a deep slumber to a flash of light.\n"+
-                            "A loading screen appears in your vision that reads:\n"+
-                            "\n\n"+
-                            "----------Reboot Complete----------\n\n\n"+
-                            "Enter your name to access your mission: \n");
+                "It is the year 3000— a time where there is no blue in the sky or green on the ground. \n"+
+                "A time where the Earth is no longer suitable for living creatures.\n" +
+                "All that remains in this world is a society of sentient machines ruled by the iron grip of the Bot Lord.\n"+
+                "No one has ever seen the Bot Lord, but all have seen his evil army that constantly suppresses the good bots of this world.\n"+
+                "\n\n"+
+                "You awake from the pitch black of a deep slumber to a flash of light.\n"+
+                "A loading screen appears in your vision that reads:\n"+
+                "\n\n"+
+                "----------Reboot Complete----------\n\n\n"+
+                "Enter your name to access your mission: \n");
     }
 
     public void enterName()
@@ -24,14 +24,14 @@ public class Cutscene
         this.name= kb.nextLine();
 
         System.out.println( "\n" +
-                            "Good morning,"+ this.name +". \n"+
-                            "You have been created to be the savior of all bots.\n" +
-                            "Your mission is to defeat the Bot Lord.\n" +
-                            "You will find him in the top level of his castle\n"+
-                            "Good luck, " +this.name+ ".\n"+
-                            "-----------------------------------\n\n"+
-                            "The loading screen dissolves, and a scene morphs from the darkness."+
-                            "\n");
+                "Good morning,"+ this.name +". \n"+
+                "You have been created to be the savior of all bots.\n" +
+                "Your mission is to defeat the Bot Lord.\n" +
+                "You will find him in the top level of his castle\n"+
+                "Good luck, " +this.name+ ".\n"+
+                "-----------------------------------\n\n"+
+                "The loading screen dissolves, and a scene morphs from the darkness."+
+                "\n");
     }
 
     // Describing the castle interior after defeating the first boss
@@ -56,10 +56,10 @@ public class Cutscene
     public void cutscene4()
     {
         System.out.println( "\n" +
-                            "The door creaks open to a scene of utter despair: a clean, well-lit office space. \n" +
-                            "You see row upon ordered-row of small desks made of faux wood, paired with small but ergonomic mesh chairs. \n" +
-                            "Countless screens sit upon the desks, casting their evil blue-tinted glows across the room. \n" +
-                            "Fluorescent lighting bears down upon the space with a fury.");
+                "The door creaks open to a scene of utter despair: a clean, well-lit office space. \n" +
+                "You see row upon ordered-row of small desks made of faux wood, paired with small but ergonomic mesh chairs. \n" +
+                "Countless screens sit upon the desks, casting their evil blue-tinted glows across the room. \n" +
+                "Fluorescent lighting bears down upon the space with a fury.");
 
     }
 
@@ -72,7 +72,12 @@ public class Cutscene
     // Description of hallway leading to "Serverus" boss
     public void cutscene6()
     {
-        System.out.println("");
+        System.out.println("\n" +
+                "You continue your trek down the dark and eerie hallway. \n" +
+                "You know that evil awaits as you slowly close in on Serverus. \n" +
+                "Serverus, the data dog, a watchful protector of the BotLord grimaces at the sight of an overly optimistic challenger. \n" +
+                "You enter the dark and beaten cage of serverus as he circles you waiting to strike. \n" +
+                "If you wish to achieve victory over the BotLord, you must first defeat Serverus.");
     }
 
     // Description of final boss room and final boss
@@ -98,7 +103,7 @@ public class Cutscene
     {
         System.out.println("");
     }
-    
+
     // Game Over
     public static void gameOver()
     {
