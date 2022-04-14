@@ -8,6 +8,7 @@ public class Driver
 
         cutscenes.cutscene1(); // Intro cutscene
         cutscenes.enterName(); // Enter name
+        Deck playerDeck = new Deck();
         direction.directionChoice0(); // Choice of entering castle or turning around
 
         // Boss fight
