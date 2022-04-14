@@ -67,12 +67,9 @@ public class EnemyDeck
         // sets isCardDealt at an index to false
         isCardDealt[index] = false;
     }
-
+    
     public void shuffleCards()
     {
-        {
-            Collections.shuffle(cards);
-        }
-
+        Collections.shuffle(cards);
     }
 }
