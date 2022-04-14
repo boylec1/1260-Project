@@ -1,19 +1,32 @@
+import java.util.ArrayList;
+
 public class Deck
 {
-    private ArrayList<Card> cards;
+    private ArrayList<Card> cards = new ArrayList<>();
     private int deckCapacity;
     private boolean[] isCardDealt;
     private int numberOfCards = 0;
 
     public Deck()
     {
-        // default constructor
+        for(int i = 0; i < 10; i++)
+            {
+                Card newCard = new Card();
+                cards.add(newCard);
+            }
+        this.deckCapacity = cards.size();
+        this.isCardDealt = new boolean[cards.size()];
     }
 
-    public Deck(int deckCapacity)
+    public Deck(int manualDeckCapacity)
     {
-        // Deck constructor sets deckCapacity to parameter
-        this.deckCapacity = deckCapacity;
+        for(int i = 0; i < manualDeckCapacity; i++)
+        {
+            Card newCard = new Card();
+            cards.add(newCard);
+        }
+        this.deckCapacity = cards.size();
+        this.isCardDealt = new boolean[cards.size()];
     }
 
     //getter for cards
@@ -68,6 +81,7 @@ public class Deck
 
         for(int i = 0; i < cards.size(); i++)
         {
+            System.out.println("Card Number:\t" + (i));
             System.out.println(cards.get(i));
             if(isCardDealt[i] == true)
             {
@@ -77,7 +91,7 @@ public class Deck
             {
                 System.out.println("This card is available to play.");
             }
-            System.out.println();
+            System.out.println("======================");
         }
 
         return "";
