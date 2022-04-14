@@ -5,7 +5,7 @@ public class Enemy
         //secret boss
     }
     // First enemy
-    public void boss1()
+    public void boss1(Deck playerDeck)
     {
         System.out.println( "You spot a shadowy figure and halt in your tracks. As you approach you see a " +
                             "robotic doorman come into view. \nHe turns and spots you, lens eyes widening and says, \n\n" +
@@ -13,10 +13,11 @@ public class Enemy
 
         System.out.println("\n\nBattle Start" + "\n===============");
 
-        Combat combat = new Combat();
+        EnemyDeck bossOne = new EnemyDeck();
+        Combat combat = new Combat(playerDeck, bossOne);
     }
     
-    public void boss2()
+    public void boss2(Deck playerDeck)
     {
         // Kitchen Boss
         System.out.println( "The room falls silent as the chef and appliance bots stop their work to look at you.\n" +
@@ -26,10 +27,11 @@ public class Enemy
 
         System.out.println("\n\nBattle Start" + "\n===============");
 
-        Combat combat = new Combat();
+        EnemyDeck bossTwo = new EnemyDeck();
+        Combat combat = new Combat(playerDeck, bossTwo);
     }
     
-    public void boss3()
+    public void boss3(Deck playerDeck)
     {
         System.out.println("Standing in front of an open door to a private office is a large bot." +
                 "\nIts polo shirt has pockets with pens sticking out, and its khakis are well-pleated." +
@@ -37,24 +39,37 @@ public class Enemy
 
         System.out.println("\n\nBattle Start" + "\n===============");
 
-        Combat combat = new Combat();
+        EnemyDeck bossThree = new EnemyDeck();
+        Combat combat = new Combat(playerDeck, bossThree);
     }
     
-    public void boss4()
+    public void boss4(Deck playerDeck)
     {
         System.out.println();// Serverus Boss Description
 
         System.out.println("\n\nBattle Start" + "\n===============");
 
-        Combat combat = new Combat();
+        EnemyDeck bossFour = new EnemyDeck();
+        Combat combat = new Combat(playerDeck, bossFour);
     }
     
-    public void boss5()
+    public void boss5(Deck playerDeck)
     {
         System.out.println();// Final Boss Description
 
         System.out.println("\n\nBattle Start" + "\n===============");
 
-        Combat combat = new Combat();
+        EnemyDeck bossFive = new EnemyDeck();
+        Combat combat = new Combat(playerDeck, bossFive);
+    }
+
+    public void finalBoss(Deck playerDeck)
+    {
+        System.out.println();// Final Boss Description
+
+        System.out.println("\n\nBattle Start" + "\n===============");
+
+        EnemyDeck finalBoss = new EnemyDeck();
+        Combat combat = new Combat(playerDeck, finalBoss);
     }
 }
