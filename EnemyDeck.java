@@ -70,6 +70,10 @@ public class EnemyDeck
 
     public void shuffleCards(Card cards)
     {
-        //randomly shuffles cards in deck
+        public void shuffleCards()
+{
+   Collections.shuffle(cards);
+}
+
     }
 }
