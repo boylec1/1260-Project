@@ -72,7 +72,7 @@ public class Deck
 
     public void shuffleCards( Card cards)
     {
-        //randomly shuffles cards in deck
+        Collections.shuffle(cards);
     }
 
     public String toString()
