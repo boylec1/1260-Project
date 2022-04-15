@@ -1,22 +1,27 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class EnemyDeck
 {
     private ArrayList<Card> cards = new ArrayList<>();
     private int deckCapacity;
     private boolean[] isCardDealt;
     private int numberOfCards = 0;
+    private int currentCard;
 
-    public void Deck()
+    public EnemyDeck()
     {
         for(int i = 0; i < 10; i++)
-        {
-            Card newCard = new Card();
-            cards.add(newCard);
-        }
+            {
+                Card newCard = new Card();
+                cards.add(newCard);
+            }
         this.deckCapacity = cards.size();
         this.isCardDealt = new boolean[cards.size()];
+        currentCard = 0;
     }
 
-    public void enemyDeck(int manualDeckCapacity)
+    public EnemyDeck(int manualDeckCapacity)
     {
         for(int i = 0; i < manualDeckCapacity; i++)
         {
@@ -25,6 +30,7 @@ public class EnemyDeck
         }
         this.deckCapacity = cards.size();
         this.isCardDealt = new boolean[cards.size()];
+        currentCard = 0;
     }
 
     //getter for cards
@@ -56,6 +62,20 @@ public class EnemyDeck
         cards.add(card);
     }
 
+    public Card getTopCard() {
+        if (currentCard < deckCapacity)
+        {
+            isCardDealt[currentCard] = true;
+            System.out.println(cards.get(currentCard));
+            return (cards.get(currentCard++));
+        }
+        else
+        {
+            System.out.println("Out of cards\n");
+            return null;
+        }
+    }
+
     public void dealCard(int index)
     {
         //returns card at index if true
@@ -70,6 +90,7 @@ public class EnemyDeck
     public void shuffleCards()
     {
         Collections.shuffle(cards);
+        currentCard = 0;
     }
    
 }
