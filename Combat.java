@@ -47,6 +47,11 @@ public class Combat {
                     System.out.println("\n\nCongratulations! You won!");
                     break;
                 }
+                else if (playerHealth == enemyHealth)
+                {
+                    System.out.println("\n\nCongratulations! You won!");
+                    break;
+                }
                 else if (playerHealth < enemyHealth)
                 {
                     System.out.println("\n\nYou Lose!\nGame Over");
