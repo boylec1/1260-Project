@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck
 {
@@ -6,6 +7,7 @@ public class Deck
     private int deckCapacity;
     private boolean[] isCardDealt;
     private int numberOfCards = 0;
+    private int currentCard;
 
     public Deck()
     {
@@ -16,6 +18,7 @@ public class Deck
             }
         this.deckCapacity = cards.size();
         this.isCardDealt = new boolean[cards.size()];
+        currentCard = 0;
     }
 
     public Deck(int manualDeckCapacity)
@@ -27,6 +30,7 @@ public class Deck
         }
         this.deckCapacity = cards.size();
         this.isCardDealt = new boolean[cards.size()];
+        currentCard = 0;
     }
 
     //getter for cards
@@ -58,6 +62,20 @@ public class Deck
         cards.add(card);
     }
 
+    public Card getTopCard() {
+        if (currentCard < deckCapacity)
+        {
+            isCardDealt[currentCard] = true;
+            System.out.println(cards.get(currentCard));
+            return (cards.get(currentCard++));
+        }
+        else
+        {
+            System.out.println("Out of cards\n");
+            return null;
+        }
+    }
+
     public void dealCard(int index)
     {
         //returns card at index if true
@@ -73,6 +91,7 @@ public class Deck
     public void shuffleCards()
     {
         Collections.shuffle(cards);
+        currentCard = 0;
     }
 
     public String toString()
@@ -83,7 +102,7 @@ public class Deck
         {
             System.out.println("Card Number:\t" + (i));
             System.out.println(cards.get(i));
-            if(isCardDealt[i] == true)
+            if(isCardDealt[i])
             {
                 System.out.println("This card has been played.");
             }
