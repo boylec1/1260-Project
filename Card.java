@@ -56,8 +56,26 @@ public class Card
     public String randomName()
     {
         Random generator = new Random();
-        String[] names = { "Jessica", "Dave", "Sarah", "Steve", "Nancy", "Ron" };
-        String[] descriptors = { " the Destroyer", " the Breaker", ", World-Ender", ", Habitual Sneezer", ", Mean Person", " the Litterer" };
+        
+        String[] names = { "Jessica", "Dave", "Sarah", "Steve", "Nancy", "Ron", "Shane", "Adam", "Reginal", "Finley",
+                "Luca", "Tommy", "Jaydan", "Talan", "Quinn", "Carlos", "Allan", "Cale", "Elijah", "Carter", "Oliver",
+                "Rocco", "Jared", "Nigel", "Izayah", "Dashawn", "Ashton", "Dane", "Silas", "Landon", "Malaki", "Hudson",
+                "Chase", "Harley", "Tristen", "Nathanial", "Sergio", "Troy", "Roderick", "Noe", "Cristian", "Ryder",
+                "Kingston", "Ayaan", "Damian", "Beckett", "Cody", "Gregory", "Chad", "Alfred", "Ben", "Clark", "Lamar",
+                "Krystal", "Marisa", "Sarahi", "Jayleen", "Lydia", "Macey", "Ada", "Britney", "Mylee", "Addison",
+                "Sanai", "Kassandra", "Esther", "Janiya", "Hannah", "Alejandra", "Cora", "Amiyah", "Kiersten",
+                "Madelyn", "Isabell", "Brianna", "Ashlynn", "Dakota", "Cadence", "Madelynn", "Riya", "Haleigh", "Ellen",
+                "Elyse", "Anne", "Avery", "Joyce", "Bailey", "Noemi", "Maddison", "Kiana", "Natalia", "Kamila",
+                "Shannon", "Tania", "Summer", "Amari", "Leticia", "London", "Dixie"};
+
+        String[] descriptors = { " the Destroyer", " the Breaker", ", World-Ender", ", Habitual Sneezer",
+                ", Mean Person", " the Litterer", " the Unyielding", ", Tested", ", Wanderer", " the Reckless",
+                " the Worthy", ", the Unwritten", ", Unrealized", " the Somber", " the Fearless", " the Graceful",
+                ", Gentle Breeze", " the Terrible", ", Silent Wind", " the Eager", " the Drunk", ", Cynical One",
+                " the Wretched", ", Who Never Returns What They Borrow", " the Great", " the Swanky", " the Rabid",
+                ", Luckiest of All", " the Ancient", " the Merciful", " the Spectacular", ", Erratic One",
+                ", Wielder of Power", ", Wielder of Sandwiches", " the Good", " the Okay", " the Bad", " the Certain",
+                ", Adventurous One", ", Old-fashioned", " the Lacking", ", Not So Lacking", " the Awesome"};
 
         String theName = names[generator.nextInt(names.length)] + descriptors[generator.nextInt(descriptors.length)];
 
