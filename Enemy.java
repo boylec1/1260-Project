@@ -11,7 +11,7 @@ public class Enemy
                             "robotic doorman come into view. \nHe turns and spots you, lens eyes widening and says, \n\n" +
                             "\"You there! Halt!\"");
 
-        System.out.println("\n\nBattle Start" + "\n===============");
+        System.out.println("\n\nBattle Start" + "\n===============\n");
 
         EnemyDeck bossOne = new EnemyDeck();
         Combat combat = new Combat(playerDeck, bossOne);
@@ -25,7 +25,7 @@ public class Enemy
                             "He drops his food and, as he turns to face you, you can see the text on his over sized chef's hat reading \"HEAD CHEF\".\n\n" +
                             "\"You're not supposed to be here!!\"");
 
-        System.out.println("\n\nBattle Start" + "\n===============");
+        System.out.println("\n\nBattle Start" + "\n===============\n");
 
         EnemyDeck bossTwo = new EnemyDeck();
         Combat combat = new Combat(playerDeck, bossTwo);
@@ -37,7 +37,7 @@ public class Enemy
                 "\nIts polo shirt has pockets with pens sticking out, and its khakis are well-pleated." +
                 "\n\nIt rushes forward shouting and waving TPS reports at you.");
 
-        System.out.println("\n\nBattle Start" + "\n===============");
+        System.out.println("\n\nBattle Start" + "\n===============\n");
 
         EnemyDeck bossThree = new EnemyDeck();
         Combat combat = new Combat(playerDeck, bossThree);
@@ -47,7 +47,7 @@ public class Enemy
     {
         System.out.println();// Serverus Boss Description
 
-        System.out.println("\n\nBattle Start" + "\n===============");
+        System.out.println("\n\nBattle Start" + "\n===============\n");
 
         EnemyDeck bossFour = new EnemyDeck();
         Combat combat = new Combat(playerDeck, bossFour);
@@ -57,7 +57,7 @@ public class Enemy
     {
         System.out.println();// Final Boss Description
 
-        System.out.println("\n\nBattle Start" + "\n===============");
+        System.out.println("\n\nBattle Start" + "\n===============\n");
 
         EnemyDeck bossFive = new EnemyDeck();
         Combat combat = new Combat(playerDeck, bossFive);
@@ -67,7 +67,7 @@ public class Enemy
     {
         System.out.println();// Final Boss Description
 
-        System.out.println("\n\nBattle Start" + "\n===============");
+        System.out.println("\n\nBattle Start" + "\n===============\n");
 
         EnemyDeck finalBoss = new EnemyDeck();
         Combat combat = new Combat(playerDeck, finalBoss);
