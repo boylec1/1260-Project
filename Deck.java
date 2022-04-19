@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
 import javax.swing.*;
 
 public class Deck
@@ -14,7 +13,7 @@ public class Deck
     public Deck()
     {
         Object[] options = { "Card " + 1, "Card " + 2, "Card " + 3};
-        Scanner kb = new Scanner(System.in);
+        
         for(int i = 0; i < 10; i++)
         {
             System.out.println("Current deck size: " + cards.size() + "/10");
@@ -63,10 +62,48 @@ public class Deck
 
     public Deck(int manualDeckCapacity)
     {
+        Object[] options = { "Card " + 1, "Card " + 2, "Card " + 3};
+
         for(int i = 0; i < manualDeckCapacity; i++)
         {
-            Card newCard = new Card();
-            cards.add(newCard);
+            System.out.println("Current deck size: " + cards.size() + "/10");
+            System.out.println("Current deck: ");
+            System.out.println(cards);
+
+            Card card1 = new Card();
+            System.out.println("Card Choice 1: ");
+            System.out.println(card1);
+            Card card2 = new Card();
+            System.out.println("Card Choice 2: ");
+            System.out.println(card2);
+            Card card3 = new Card();
+            System.out.println("Card Choice 3: ");
+            System.out.println(card3);
+
+            JPanel panel = new JPanel();
+            panel.add(new JLabel("Please look at your console. Choose one of the three cards\n" +
+                    " presented to add to your deck."));
+            int result = JOptionPane.showOptionDialog(null, panel, "Pay attention! This is how you do things!",
+                    JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, null);
+
+            if(result == JOptionPane.YES_OPTION)
+            {
+                cards.add(card1);
+                JOptionPane.showMessageDialog(null,"You have chosen Card Choice 1. You have "
+                        + (10 - cards.size()) + " more selections to make.", "Card Added to Deck", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else if(result == JOptionPane.NO_OPTION)
+            {
+                cards.add(card2);
+                JOptionPane.showMessageDialog(null,"You have chosen Card Choice 2. You have "
+                        + (10 - cards.size()) + " more selections to make.", "Card Added to Deck", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else if(result == JOptionPane.CANCEL_OPTION)
+            {
+                cards.add(card3);
+                JOptionPane.showMessageDialog(null,"You have chosen Card Choice 3. You have "
+                        + (10 - cards.size()) + " more selections to make.", "Card Added to Deck", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
         this.deckCapacity = cards.size();
         this.isCardDealt = new boolean[cards.size()];
