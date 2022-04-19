@@ -12,47 +12,46 @@ public class Combat {
     private String attackAttribute;
     private String defenseAttribute;
 
-    //Turn turn = new Turn();
-
-    //boolean goFirst = false;
-    //CoinFlip flip1 = new CoinFlip(goFirst);
-    //System.out.println(flip1.toString());
-
     public Combat(Deck playerDeck, EnemyDeck enemyDeck, int enemyHP, int playerHP)
     {
         boolean winCondition = false;
         this.playerHealth = playerHP;
         this.enemyHealth = enemyHP;
-        // display current health
 
-        System.out.println("============");
-        System.out.println("|  Battle  |");
-        System.out.println("|  Begin   |");
-        System.out.println("============");
-        currentHealth();
+        // display current health
+        JOptionPane.showMessageDialog(null, currentHealth(), "Fight to the death!"
+                , JOptionPane.INFORMATION_MESSAGE);
 
         // shuffles both decks
-        System.out.println("\nDeck Shuffled\n");
+        JOptionPane.showMessageDialog(null, "Decks Shuffled", "Fight to the death!"
+                , JOptionPane.INFORMATION_MESSAGE);
+
         playerDeck.shuffleCards();
         enemyDeck.shuffleCards();
 
+
+        // combat loop
         do {
-            // insert turn counter here
+            // Turn counter
             System.out.println("\n==============");
             System.out.println("|   Turn " + this.turnCount + "   |");
             System.out.println("==============");
-            this.turnCount++;
 
             // insert options here
             // i.e. option to use consumables
 
             // deals top card of each deck
+            JOptionPane.showMessageDialog(null, "Deal!", "Turn " + this.turnCount
+                    , JOptionPane.INFORMATION_MESSAGE);
+
             System.out.println("\nDeal!\n");
+
             System.out.print("Your card:\n");
             Card topCard = playerDeck.getTopCard();
             System.out.print("Enemy card:\n");
             Card enemyTopCard = enemyDeck.getTopCard();
 
+            // win condition if no more cards
             if (topCard == null || enemyTopCard == null)
             {
                 if (enemyHealth < playerHealth)
@@ -130,21 +129,25 @@ public class Combat {
             enemyHealth -= playerDamage;
             playerHealth -= enemyDamage;
 
-            System.out.println("\nYou took " + enemyDamage + " damage!");
-            System.out.println("The enemy took " + playerDamage + " damage!\n");
+            JOptionPane.showMessageDialog(null, "You took " + enemyDamage + " damage!\n" +
+                    "The enemy took " + playerDamage + " damage!\n", "Turn " + this.turnCount
+                    , JOptionPane.INFORMATION_MESSAGE);
 
             // display current health
-            currentHealth();
+            JOptionPane.showMessageDialog(null, currentHealth(), "Turn " + this.turnCount
+                    , JOptionPane.INFORMATION_MESSAGE);
 
             if (enemyHealth <= 0 || playerHealth <= 0)
             {
                 winCondition = true;
             }
 
+            this.turnCount++;
+
         }
         while (!winCondition);
 
-        System.out.println("\n\n===============\nBattle End");
+        System.out.println("\n\n===============\nBattle End\n\n");
 
         if (enemyHealth <= 0)
         {
@@ -157,8 +160,10 @@ public class Combat {
         }
     }
 
-    public void currentHealth()
+    public String currentHealth()
     {
+        String output = "";
+
         if (playerHealth < 0)
         {
             playerHealth = 0;
@@ -169,6 +174,10 @@ public class Combat {
         }
         System.out.println("Player health is : " + playerHealth);
         System.out.println("Enemy health is : " + enemyHealth);
+        output += "Player health is: " + playerHealth;
+        output += "\nEnemy health is: " + enemyHealth;
+
+        return output;
     }
 
     public int setNewPlayerHealth()
