@@ -9,46 +9,13 @@ public class Driver
         cutscenes.cutscene1(); // Intro cutscene
         cutscenes.enterName(); // Enter name
         Deck playerDeck = new Deck();
-        direction.directionChoice0(playerDeck); // Choice of entering castle or turning around
+        PlayerStats playerHealth = new PlayerStats();
 
-        // Boss fight
-
-        System.out.println(cutscenes.cutscene2()); // Entering castle
-
-        direction.directionChoice1(playerDeck); // Hallway choice: left or right
-
-        // Possible Event
-        // Boss fight
-        System.exit(0); // =======================================================================================
-
-
-
-        // Boss fight
-
-        direction.directionChoice2(playerDeck); // Hallway choice: left or right
-
-        // Possible Event
-
-        cutscenes.cutscene4(); // Describes the office
-
-        // Boss fight
-
-        direction.directionChoice3(playerDeck); // Office choice: Up the stairs, or look around
-
-        // Possible Event
-
-        cutscenes.cutscene5(); // Description of going upstairs and hallway
-        direction.directionChoice4(playerDeck); // Hallway choice: left, forward, or right
-
-        // Possible Event
-
-        cutscenes.cutscene6(); // Description of hallway leading to "Serverus"
-        direction.directionChoice5(playerDeck); // "Choice" of opening door to final boss
-        cutscenes.cutscene7(); // Description of final boss room
-
-        // Final boss fight
-
-        cutscenes.endCutscene1(); // End of game
-
+        direction.directionChoice0(playerDeck, playerHealth); // Choice of entering castle or turning around
+        direction.directionChoice1(playerDeck, playerHealth); // Hallway choice: left or right
+        direction.directionChoice2(playerDeck, playerHealth); // Hallway choice: left or right
+        direction.directionChoice3(playerDeck, playerHealth); // Office choice: Up the stairs, or look around
+        direction.directionChoice4(playerDeck, playerHealth); // Hallway choice: left, forward, or right
+        direction.directionChoice5(playerDeck, playerHealth); // "Choice" of opening door to final boss
     }
 }

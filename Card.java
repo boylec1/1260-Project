@@ -1,11 +1,18 @@
 import java.util.Random;
-
 public class Card
 {
     private int cardAttack;
     private int cardDefense;
     private String cardAttribute;
-    private String cardName;  
+    private String cardName;
+
+    public Card(int cardAttack, int cardDefense, String cardAttribute, String cardName)
+    {
+        this.cardAttack = cardAttack;
+        this.cardDefense = cardDefense;
+        this.cardAttribute = cardAttribute;
+        this.cardName = cardName;
+    }
     
     public Card()
     {
@@ -16,16 +23,7 @@ public class Card
         this.cardAttribute = randomAttribute(generator.nextInt(5)+1);
         this.cardName = randomName();
     }
-    
-    public Card(int cardAttack, int cardDefense, String cardAttribute, String cardName)
-    {
-        this.cardAttack = cardAttack;
-        this.cardDefense = cardDefense;
-        this.cardAttribute = cardAttribute;
-        this.cardName = cardName;
-    }
-    
-    // This is a placeholder. I know we have the Enum for these, but I don't yet know how to randomize from Enums.
+
     public String randomAttribute(int thePick)
     {
 
@@ -33,55 +31,127 @@ public class Card
 
         switch(thePick){
             case 1:
-                theAttribute = "Virus";
+                theAttribute = "Virus    ";
                 break;
             case 2:
                 theAttribute = "Antivirus";
                 break;
             case 3:
-                theAttribute = "Data";
+                theAttribute = "Data     ";
                 break;
             case 4:
-                theAttribute = "Software";
+                theAttribute = "Software ";
                 break;
             case 5:
-                theAttribute = "Hardware";
+                theAttribute = "Hardware ";
                 break;
         }
 
         return theAttribute;
     }
-    
-    // this is a placeholder. Might use Enums for this instead, but I still need to figure out how to randomize from them.
+
     public String randomName()
     {
         Random generator = new Random();
-        
-        String[] names = { "Jessica", "Dave", "Sarah", "Steve", "Nancy", "Ron", "Shane", "Adam", "Reginal", "Finley",
-                "Luca", "Tommy", "Jaydan", "Talan", "Quinn", "Carlos", "Allan", "Cale", "Elijah", "Carter", "Oliver",
-                "Rocco", "Jared", "Nigel", "Izayah", "Dashawn", "Ashton", "Dane", "Silas", "Landon", "Malaki", "Hudson",
-                "Chase", "Harley", "Tristen", "Nathanial", "Sergio", "Troy", "Roderick", "Noe", "Cristian", "Ryder",
-                "Kingston", "Ayaan", "Damian", "Beckett", "Cody", "Gregory", "Chad", "Alfred", "Ben", "Clark", "Lamar",
-                "Krystal", "Marisa", "Sarahi", "Jayleen", "Lydia", "Macey", "Ada", "Britney", "Mylee", "Addison",
-                "Sanai", "Kassandra", "Esther", "Janiya", "Hannah", "Alejandra", "Cora", "Amiyah", "Kiersten",
-                "Madelyn", "Isabell", "Brianna", "Ashlynn", "Dakota", "Cadence", "Madelynn", "Riya", "Haleigh", "Ellen",
-                "Elyse", "Anne", "Avery", "Joyce", "Bailey", "Noemi", "Maddison", "Kiana", "Natalia", "Kamila",
-                "Shannon", "Tania", "Summer", "Amari", "Leticia", "London", "Dixie"};
+        String theName = "Jake the Snake                    ";
+        int theLuck = generator.nextInt(4);
 
-        String[] descriptors = { " the Destroyer", " the Breaker", ", World-Ender", ", Habitual Sneezer",
-                ", Mean Person", " the Litterer", " the Unyielding", ", Tested", ", Wanderer", " the Reckless",
-                " the Worthy", ", the Unwritten", ", Unrealized", " the Somber", " the Fearless", " the Graceful",
-                ", Gentle Breeze", " the Terrible", ", Silent Wind", " the Eager", " the Drunk", ", Cynical One",
-                " the Wretched", ", Who Never Returns What They Borrow", " the Great", " the Swanky", " the Rabid",
-                ", Luckiest of All", " the Ancient", " the Merciful", " the Spectacular", ", Erratic One",
-                ", Wielder of Power", ", Wielder of Sandwiches", " the Good", " the Okay", " the Bad", " the Certain",
-                ", Adventurous One", ", Old-fashioned", " the Lacking", ", Not So Lacking", " the Awesome"};
+        String[] names4 = { "Dave", "Adam", "Luca", "Cale", "Dane", "Troy", "Cody", "Chad", "Cora", "Riya", "Anne"};
 
-        String theName = names[generator.nextInt(names.length)] + descriptors[generator.nextInt(descriptors.length)];
+        String[] names5 = { "Sarah", "Steve", "Nancy", "Shane", "Tommy", "Talan", "Quinn", "Allan", "Rocco", "Jared",
+                "Nigel", "Silas", "Chase", "Ryder", "Ayaan", "Clark", "Lamar", "Lydia", "Macey", "Mylee", "Sanai",
+                "Ellen", "Elyse", "Avery", "Joyce", "Noemi", "Kiana", "Tania", "Amari", "Dixie"};
+
+        String[] names6 = { "Finley", "Jaydan", "Carlos", "Elijah", "Carter", "Oliver", "Izayah", "Ashton", "Landon",
+                "Malaki", "Hudson", "Harley", "Sergio", "Damian", "Alfred", "Marisa", "Sarahi", "Esther", "Janiya",
+                "Hannah", "Amiyah", "Dakota", "Bailey", "Kamila", "Summer", "London"};
+
+        String[] names7 = { "Jessica", "Dashawn", "Tristen", "Beckett", "Gregory", "Krystal", "Jayleen", "Britney",
+                "Addison", "Madelyn", "Isabell", "Brianna", "Ashlynn", "Cadence", "Haleigh", "Natalia", "Shannon",
+                "Leticia"};
+
+        String[] descriptors4 = {
+                " the Destroyer                ", " the Breaker                  ", ", World-Ender                 ",
+                ", Habitual Sneezer            ", ", Mean Person                 ", " the Litterer                 ",
+                " the Unyielding               ", ", Tested                      ", ", Wanderer                    ",
+                " the Reckless                 ", " the Worthy                   ", ", the Unwritten               ",
+                ", Unrealized                  ", " the Somber                   ", " the Fearless                 ",
+                " the Graceful                 ", ", Gentle Breeze               ", " the Terrible                 ",
+                ", Silent Wind                 ", " the Eager                    ", " the Drunk                    ",
+                ", Cynical One                 ", " the Wretched                 ", " the Borrower                 ",
+                " the Great                    ", " the Swanky                   ", " the Rabid                    ",
+                ", Luckiest of All             ", " the Ancient                  ", " the Merciful                 ",
+                " the Spectacular              ", ", Erratic One                 ", ", Wielder of Power            ",
+                ", Sandwich-Wielder            ", " the Good                     ", " the Okay                     ",
+                " the Bad                      ", " the Certain                  ", ", Adventurous One             ",
+                ", Old-fashioned               ", " the Lacking                  ", ", Not So Lacking              ",
+                " the Awesome                  "};
+
+        String[] descriptors5 = {
+                " the Destroyer               ", " the Breaker                 ", ", World-Ender                ",
+                ", Habitual Sneezer           ", ", Mean Person                ", " the Litterer                ",
+                " the Unyielding              ", ", Tested                     ", ", Wanderer                   ",
+                " the Reckless                ", " the Worthy                  ", ", the Unwritten              ",
+                ", Unrealized                 ", " the Somber                  ", " the Fearless                ",
+                " the Graceful                ", ", Gentle Breeze              ", " the Terrible                ",
+                ", Silent Wind                ", " the Eager                   ", " the Drunk                   ",
+                ", Cynical One                ", " the Wretched                ", " the Borrower                ",
+                " the Great                   ", " the Swanky                  ", " the Rabid                   ",
+                ", Luckiest of All            ", " the Ancient                 ", " the Merciful                ",
+                " the Spectacular             ", ", Erratic One                ", ", Wielder of Power           ",
+                ", Sandwich-Wielder           ", " the Good                    ", " the Okay                    ",
+                " the Bad                     ", " the Certain                 ", ", Adventurous One            ",
+                ", Old-fashioned              ", " the Lacking                 ", ", Not So Lacking             ",
+                " the Awesome                 "};
+
+        String[] descriptors6 = {
+                " the Destroyer              ", " the Breaker                ", ", World-Ender               ",
+                ", Habitual Sneezer          ", ", Mean Person               ", " the Litterer               ",
+                " the Unyielding             ", ", Tested                    ", ", Wanderer                  ",
+                " the Reckless               ", " the Worthy                 ", ", the Unwritten             ",
+                ", Unrealized                ", " the Somber                 ", " the Fearless               ",
+                " the Graceful               ", ", Gentle Breeze             ", " the Terrible               ",
+                ", Silent Wind               ", " the Eager                  ", " the Drunk                  ",
+                ", Cynical One               ", " the Wretched               ", " the Borrower               ",
+                " the Great                  ", " the Swanky                 ", " the Rabid                  ",
+                ", Luckiest of All           ", " the Ancient                ", " the Merciful               ",
+                " the Spectacular            ", ", Erratic One               ", ", Wielder of Power          ",
+                ", Sandwich-Wielder          ", " the Good                   ", " the Okay                   ",
+                " the Bad                    ", " the Certain                ", ", Adventurous One           ",
+                ", Old-fashioned             ", " the Lacking                ", ", Not So Lacking            ",
+                " the Awesome                "};
+
+        String[] descriptors7 = {
+                " the Destroyer             ", " the Breaker               ", ", World-Ender              ",
+                ", Habitual Sneezer         ", ", Mean Person              ", " the Litterer              ",
+                " the Unyielding            ", ", Tested                   ", ", Wanderer                 ",
+                " the Reckless              ", " the Worthy                ", ", the Unwritten            ",
+                ", Unrealized               ", " the Somber                ", " the Fearless              ",
+                " the Graceful              ", ", Gentle Breeze            ", " the Terrible              ",
+                ", Silent Wind              ", " the Eager                 ", " the Drunk                 ",
+                ", Cynical One              ", " the Wretched              ", " the Borrower              ",
+                " the Great                 ", " the Swanky                ", " the Rabid                 ",
+                ", Luckiest of All          ", " the Ancient               ", " the Merciful              ",
+                " the Spectacular           ", ", Erratic One              ", ", Wielder of Power         ",
+                ", Sandwich-Wielder         ", " the Good                  ", " the Okay                  ",
+                " the Bad                   ", " the Certain               ", ", Adventurous One          ",
+                ", Old-fashioned            ", " the Lacking               ", ", Not So Lacking           ",
+                " the Awesome               "};
+
+        switch(theLuck) {
+            case 1:
+                theName = names4[generator.nextInt(names4.length)] + descriptors4[generator.nextInt(descriptors4.length)];
+            case 2:
+                theName = names5[generator.nextInt(names5.length)] + descriptors5[generator.nextInt(descriptors5.length)];
+            case 3:
+                theName = names6[generator.nextInt(names6.length)] + descriptors6[generator.nextInt(descriptors6.length)];
+            case 4:
+                theName = names7[generator.nextInt(names7.length)] + descriptors7[generator.nextInt(descriptors7.length)];
+        }
 
         return theName;
     }
-    
+
     public int getCardAttack()
     {
         return cardAttack;
@@ -102,13 +172,15 @@ public class Card
         return cardName;
     }
 
-    public String toString() 
+    public String toString()
     {
         String aCard = "";
-        aCard += "Card Name:\t\t" + cardName + "\n"; 
-        aCard += "Attack Value:\t" + cardAttack + "\n";
-        aCard += "Defense Value:\t" + cardDefense + "\n";
-        aCard += "Special Action:\t" + cardAttribute + "\n";
+        aCard += "========================================================\n";
+        aCard += "|| Card Name:\t\t" + cardName + "||\n"; // need to be able to generate names, if we're going to have names
+        aCard += "|| Attack Value:\t" + cardAttack + "\t\t\t\t\t\t\t\t  ||\n";
+        aCard += "|| Defense Value:\t" + cardDefense + "\t\t\t\t\t\t\t\t  ||\n";
+        aCard += "|| Special Action:\t" + cardAttribute + "\t\t\t\t\t\t  ||\n";
+        aCard += "========================================================\n";
 
         return aCard;
     }
