@@ -9,11 +9,10 @@ public class Deck
     private boolean[] isCardDealt;
     private int numberOfCards = 0;
     private int currentCard;
+    private Object[] options = { "Card " + 1, "Card " + 2, "Card " + 3};
 
     public Deck()
     {
-        Object[] options = { "Card " + 1, "Card " + 2, "Card " + 3};
-        
         for(int i = 0; i < 10; i++)
         {
             System.out.println("Current deck size: " + cards.size() + "/10");
@@ -62,8 +61,6 @@ public class Deck
 
     public Deck(int manualDeckCapacity)
     {
-        Object[] options = { "Card " + 1, "Card " + 2, "Card " + 3};
-
         for(int i = 0; i < manualDeckCapacity; i++)
         {
             System.out.println("Current deck size: " + cards.size() + "/10");
