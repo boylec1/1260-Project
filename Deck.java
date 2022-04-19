@@ -55,7 +55,6 @@ public class Deck
                 JOptionPane.showMessageDialog(null,"You have chosen Card Choice 3. You have "
                         + (10 - cards.size()) + " more selections to make.", "Card Added to Deck", JOptionPane.INFORMATION_MESSAGE);
             }
-            JOptionPane.showMessageDialog(null, "You have " + (10 - cards.size()) + " more selections to make. Let us continue.");
         }
         this.deckCapacity = cards.size();
         this.isCardDealt = new boolean[cards.size()];
