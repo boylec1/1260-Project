@@ -1,200 +1,185 @@
 import java.util.*;
+import javax.swing.*;
 
 public class DirectionChoice
 {
     Cutscene cutscenes = new Cutscene();//can use cutscenes describing decision
+    private Object[] options1 = { "Enter", "Leave"};
+    private Object[] options2 = { "Left", "Right"};
+    private Object[] options3 = { "Look Around", "Up the Stairs" };
+    private Object[] options4 = { "Left", "Straight", "Right"};
+    private Object[] options5 = { "Accept the Challenge", "Flee for your Life"};
 
-    public void directionChoice0(Deck playerDeck)
+
+    public void directionChoice0(Deck playerDeck, PlayerStats playerHealth)
     {
-        // Choice of opening castle door or turning around and leaving
-        Scanner kb = new Scanner(System.in);
-        System.out.println("As the Bot Lord's castle looms before you, you have a decision to make: enter, " +
-                "or leave?\n");
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("As the Bot Lord's castle looms before you, you have a decision to make: enter" +
+                " or leave?\n"));
+        int result = JOptionPane.showOptionDialog(null, panel, "The choice looms...",
+                JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options1, null);
 
-        String choice = kb.nextLine();
-
-        while(!choice.equalsIgnoreCase("enter") && !choice.equalsIgnoreCase("leave"))
+        if(result == JOptionPane.YES_OPTION)
         {
-            System.out.println("\nThat is not a valid choice. Time waits for no one; choose your fate.\n");
-            choice = kb.nextLine();
-        }
-
-        if(choice.equalsIgnoreCase("enter"))
-        {
-            System.out.println("\nYou steel yourself and push forward through the door of the castle. You" +
-                    " resolve that the Bot Lord will see his end this day.");
+            JOptionPane.showMessageDialog(null, "\nYou steel yourself and push forward through" +
+                    " the door of the castle. You resolve that the Bot Lord will see his end this day.", "Huzzah!"
+                    , JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
-            enemy.boss1(playerDeck);
+            enemy.boss1(playerDeck, playerHealth);
+            cutscenes.cutscene2();
         }
         else
         {
-            System.out.println( "\nYour shoulders slump in resignation and fear."+
-                                "You turn toward the wasteland to meet a slow end.\n " +
-                                "The Bot Lord will continue unopposed.\n");
-            System.out.println();
-            System.out.println("=================================");
-            System.out.println("===========GAME OVER=============");
-            System.out.println("=================================");
-            System.exit(0);
+            Cutscene.coward();
         }
     }
-    public void directionChoice1(Deck playerDeck)
+    public void directionChoice1(Deck playerDeck, PlayerStats playerHealth)
     {
-        // After entering the castle describe the hallways going
-        // left and right and then ask player which direction to go
-        Scanner kb = new Scanner(System.in);
-        System.out.println( "Before you lies a great hallway lit only by the sparse crackling torches placed few and far between. \n\n"+
-                            "Will you travel down the hallways left path, or the right path?\n");
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("Before you lies a great hallway lit only by the sparse crackling torches placed " +
+                "few and far between.\n Will you travel down the hallways left path, or the right path?\n"));
+        int result = JOptionPane.showOptionDialog(null, panel, "The choice looms...",
+                JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options2, null);
 
-        String choice = kb.nextLine();
-
-        while(!choice.equalsIgnoreCase("left") && !choice.equalsIgnoreCase("right"))
+        if(result == JOptionPane.YES_OPTION)
         {
-            System.out.println("That is not a valid choice. Time waits for no one; choose your fate.");
-            choice = kb.nextLine();
-        }
+            JOptionPane.showMessageDialog(null,"You walk down the path to the left."
+                    , "Ooh, they're going left.", JOptionPane.PLAIN_MESSAGE);
 
-        if(choice.equalsIgnoreCase("left"))
-        {
-            System.out.println("You walk down the path to the left.");
+            JOptionPane.showMessageDialog(null,"EVENT", "PLACEHOLDER"
+                    , JOptionPane.WARNING_MESSAGE);
 
-            System.out.println("EVENT");
-            //Event event = new Event(); //event will describe entering a room with an item in it
-            //event.event1();
-
-            System.out.println("You exit the room and continue down the hallway.");
-            cutscenes.cutscene3(); // Describes entering the kitchen
-
+            JOptionPane.showMessageDialog(null, "You exit the room and continue down the hallway."
+                    , "Onward!", JOptionPane.PLAIN_MESSAGE);
+            cutscenes.cutscene3();
             Enemy enemy = new Enemy(); //You fight kitchen boss anyway but at least you got an item first
-            enemy.boss2(playerDeck); //kitchen boss
+            enemy.boss2(playerDeck, playerHealth); //kitchen boss
         }
         else
         {
-            System.out.println("You walk down the path to the right.");
-            cutscenes.cutscene3(); // Describes entering the kitchen
+            JOptionPane.showMessageDialog(null, "You walk down the path to the right."
+                    , "To the right!", JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
-            enemy.boss2(playerDeck); //kitchen boss
+            enemy.boss2(playerDeck, playerHealth); //kitchen boss
         }
     }
 
-    public void directionChoice2(Deck playerDeck)
+    public void directionChoice2(Deck playerDeck, PlayerStats playerHealth)
     {
-        // Describe hallways going left and right and then ask player which direction to go
-        Scanner kb = new Scanner(System.in);
-        System.out.println("");
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("Continuing on, you come to a \"T\" in the way. There are darkened hallways to " +
+                "the left\n and the right of you. Where will you go, the left hall or the right hall?"));
+        int result = JOptionPane.showOptionDialog(null, panel, "The choice looms...",
+                JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options2, null);
 
-        String choice = kb.nextLine();
-
-        while(!choice.equalsIgnoreCase("left") && !choice.equalsIgnoreCase("right"))
+        if(result == JOptionPane.YES_OPTION)
         {
-            System.out.println("That is not a valid choice. Time waits for no one; choose your fate.");
-            choice = kb.nextLine();
-        }
-
-        if(choice.equalsIgnoreCase("right"))
-        {
-            System.out.println("Event");
-            //Event event = new Event();
-            //event.event2();
+            JOptionPane.showMessageDialog(null,"Event", "PLACEHOLDER"
+                    , JOptionPane.PLAIN_MESSAGE); // Possible event
+            JOptionPane.showMessageDialog(null, "You exit the room and continue down the hallway."
+                    , "The other way!", JOptionPane.PLAIN_MESSAGE);
+            cutscenes.cutscene4();
+            Enemy enemy = new Enemy();
+            enemy.boss3(playerDeck, playerHealth);
         }
         else
         {
-            System.out.println("Fight Enemy");
+            JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
+                    , JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
-            enemy.boss3(playerDeck);
+            enemy.boss3(playerDeck, playerHealth);
         }
     }
 
-    public void directionChoice3(Deck playerDeck)
+    public void directionChoice3(Deck playerDeck, PlayerStats playerHealth)
     {
-        // Choice of going up the stairs past the defeated boss or look around the office
-        Scanner kb = new Scanner(System.in);
-        System.out.println("");
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("With the boss sparking and ruined, peace settles into the room\n. What will you do" +
+                ", look around or go up the stairs?"));
+        int result = JOptionPane.showOptionDialog(null, panel, "The choice looms...",
+                JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options3, null);
 
-        String choice = kb.nextLine();
-
-        while(!choice.equalsIgnoreCase("up") && !choice.equalsIgnoreCase("look around"))
+        if(result == JOptionPane.YES_OPTION)
         {
-            System.out.println("That is not a valid choice. Time waits for no one; choose your fate.");
-            choice = kb.nextLine();
-        }
+            JOptionPane.showMessageDialog(null,"Event", "PLACEHOLDER"
+                    , JOptionPane.PLAIN_MESSAGE); // Possible event
 
-        if(choice.equalsIgnoreCase("look around"))
-        {
-            System.out.println("Event");
-            //Event event = new Event();
-            //event.event3();
+            JOptionPane.showMessageDialog(null, "The room examined, you turn to up the stairs " +
+                    "from before.", "Back on track!", JOptionPane.PLAIN_MESSAGE);
+            cutscenes.cutscene5();
+            Enemy enemy = new Enemy();
+            enemy.boss4(playerDeck, playerHealth);
         }
         else
         {
-            System.out.println("Fight Enemy");
+            JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
+                    , JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
-            enemy.boss4(playerDeck);
+            enemy.boss4(playerDeck, playerHealth);
         }
     }
 
-    public void directionChoice4(Deck playerDeck)
+    public void directionChoice4(Deck playerDeck, PlayerStats playerHealth)
     {
-        // Choice of going straight down long hallway, left down another hallway, or right towards a room
-        // Left choice leads back to starting choice of left, straight, or right
-        Scanner kb = new Scanner(System.in);
-        System.out.println("");
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("After exiting the stairway, you find yourself riddled with choices\n. You can turn" +
+                " down a hallway to the left, you can continue straight, or you can move towards a room to your " +
+                "right.\n Which will you choose?"));
+        int result = JOptionPane.showOptionDialog(null, panel, "The choice looms...",
+                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, options4, null);
 
-        String choice = kb.nextLine();
-
-        while(!choice.equalsIgnoreCase("left") && !choice.equalsIgnoreCase("right") &&
-                !choice.equalsIgnoreCase("straight"))
+        if(result == JOptionPane.YES_OPTION)
         {
-            System.out.println("That is not a valid choice. Time waits for no one; choose your fate.");
-            choice = kb.nextLine();
+            JOptionPane.showMessageDialog(null,"Event", "PLACEHOLDER"
+                    , JOptionPane.PLAIN_MESSAGE); // Possible event
+
+            JOptionPane.showMessageDialog(null, "The room examined, you turn to up the stairs " +
+                    "from before.", "Back on track!", JOptionPane.PLAIN_MESSAGE);
+            cutscenes.cutscene6();
+            Enemy enemy = new Enemy();
+            enemy.boss5(playerDeck, playerHealth);
         }
+        else if(result == JOptionPane.NO_OPTION)
+        {
+            JOptionPane.showMessageDialog(null,"Event", "PLACEHOLDER"
+                    , JOptionPane.PLAIN_MESSAGE); // Possible event
 
-        if(choice.equalsIgnoreCase("left"))
-        {
-            System.out.println("Special Event");
-            //Event event = new Event();
-            //event.specialEvent1();
-        }
-        else if (choice.equalsIgnoreCase("right"))
-        {
-            System.out.println("Event");
-            //event.event4();
+            JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
+                    , JOptionPane.PLAIN_MESSAGE);
+            cutscenes.cutscene6();
+            Enemy enemy = new Enemy();
+            enemy.boss5(playerDeck, playerHealth);
         }
         else
         {
-            System.out.println("Fight Enemy");
+            JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
+                    , JOptionPane.PLAIN_MESSAGE);
+            cutscenes.cutscene6();
             Enemy enemy = new Enemy();
-            enemy.boss5(playerDeck);
+            enemy.boss5(playerDeck, playerHealth);
         }
     }
 
-    public void directionChoice5(Deck playerDeck)
+    public void directionChoice5(Deck playerDeck, PlayerStats playerHealth)
     {
-        // "Choice" of opening the final door to the boss
-        // Not an actual choice because you have to fight the boss
-        Scanner kb = new Scanner(System.in);
-        System.out.println("");
+        JPanel panel = new JPanel();
+        panel.add(new JLabel("You know that the Bot Lord resides behind this door. Your last challenge awaits.\n" +
+                "The hopes of the world await. Will you accept this challenge, or will you cower and flee your duty?"));
+        int result = JOptionPane.showOptionDialog(null, panel, "The choice looms...",
+                JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, options5, null);
 
-        String choice = kb.nextLine();
-
-        while(!choice.equalsIgnoreCase("enter") && !choice.equalsIgnoreCase("leave"))
+        if(result == JOptionPane.YES_OPTION)
         {
-            System.out.println("That is not a valid choice. Time waits for no one; choose your fate.");
-            choice = kb.nextLine();
-        }
-
-        if(choice.equalsIgnoreCase("enter"))
-        {
-            System.out.println("Final Boss Fight");
+            JOptionPane.showMessageDialog(null, "Final Boss Fight", "It's the boss!"
+                    , JOptionPane.PLAIN_MESSAGE);
+            cutscenes.cutscene7();
             Enemy enemy = new Enemy();
-            enemy.finalBoss(playerDeck);
+            enemy.finalBoss(playerDeck, playerHealth);
+            cutscenes.cutsceneEnd();
         }
         else
         {
-            System.out.println("You turn around, body trembling with fear as you trudge away from the final door. " +
-                    "You disappear into the wasteland never to be seen again. The Bot Lord will continue unopposed.\n");
-            System.out.println("GAME OVER");
-            System.exit(0);
+            Cutscene.coward();
         }
     }
 }

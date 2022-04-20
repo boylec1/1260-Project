@@ -5,7 +5,7 @@ public class PlayerStats {
 
     public PlayerStats()
     {
-        this.health = 100; // number is a placeholder just getting something here
+        this.health = 50; // number is a placeholder just getting something here
     }
 
     public int getHealth() {
