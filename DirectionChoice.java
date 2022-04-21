@@ -11,7 +11,7 @@ public class DirectionChoice
     private Object[] options5 = { "Accept the Challenge", "Flee for your Life"};
 
 
-    public void directionChoice0(Deck playerDeck, PlayerStats playerHealth)
+    public void directionChoice0(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         JPanel panel = new JPanel();
         panel.add(new JLabel("As the Bot Lord's castle looms before you, you have a decision to make: enter" +
@@ -25,7 +25,7 @@ public class DirectionChoice
                     " the door of the castle. You resolve that the Bot Lord will see his end this day.", "Huzzah!"
                     , JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
-            enemy.boss1(playerDeck, playerHealth);
+            enemy.boss1(playerDeck, playerHealth, consumable);
             cutscenes.cutscene2();
         }
         else
@@ -33,7 +33,7 @@ public class DirectionChoice
             Cutscene.coward();
         }
     }
-    public void directionChoice1(Deck playerDeck, PlayerStats playerHealth)
+    public void directionChoice1(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         JPanel panel = new JPanel();
         panel.add(new JLabel("Before you lies a great hallway lit only by the sparse crackling torches placed " +
@@ -46,25 +46,32 @@ public class DirectionChoice
             JOptionPane.showMessageDialog(null,"You walk down the path to the left."
                     , "Ooh, they're going left.", JOptionPane.PLAIN_MESSAGE);
 
-            JOptionPane.showMessageDialog(null,"EVENT", "PLACEHOLDER"
+            JOptionPane.showMessageDialog(null,"You spot something on the ground and decide to" +
+                    " pick it up!", "Event"
                     , JOptionPane.WARNING_MESSAGE);
+
+            // add battery consumable to ArrayList
+            consumable.addConsumableBattery();
+
+            JOptionPane.showMessageDialog(null,"It seems to be a battery pack!"
+                    , "Event", JOptionPane.WARNING_MESSAGE);
 
             JOptionPane.showMessageDialog(null, "You exit the room and continue down the hallway."
                     , "Onward!", JOptionPane.PLAIN_MESSAGE);
             cutscenes.cutscene3();
             Enemy enemy = new Enemy(); //You fight kitchen boss anyway but at least you got an item first
-            enemy.boss2(playerDeck, playerHealth); //kitchen boss
+            enemy.boss2(playerDeck, playerHealth, consumable); //kitchen boss
         }
         else
         {
             JOptionPane.showMessageDialog(null, "You walk down the path to the right."
                     , "To the right!", JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
-            enemy.boss2(playerDeck, playerHealth); //kitchen boss
+            enemy.boss2(playerDeck, playerHealth, consumable); //kitchen boss
         }
     }
 
-    public void directionChoice2(Deck playerDeck, PlayerStats playerHealth)
+    public void directionChoice2(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         JPanel panel = new JPanel();
         panel.add(new JLabel("Continuing on, you come to a \"T\" in the way. There are darkened hallways to " +
@@ -74,24 +81,32 @@ public class DirectionChoice
 
         if(result == JOptionPane.YES_OPTION)
         {
-            JOptionPane.showMessageDialog(null,"Event", "PLACEHOLDER"
-                    , JOptionPane.PLAIN_MESSAGE); // Possible event
+            JOptionPane.showMessageDialog(null,"You spot something on the ground and decide to" +
+                            " pick it up!", "Event"
+                    , JOptionPane.WARNING_MESSAGE);
+
+            // add hammer to ArrayList
+            consumable.addConsumableHammer();
+
+            JOptionPane.showMessageDialog(null,"It seems to be a hammer!"
+                    , "Event", JOptionPane.WARNING_MESSAGE);
+
             JOptionPane.showMessageDialog(null, "You exit the room and continue down the hallway."
                     , "The other way!", JOptionPane.PLAIN_MESSAGE);
             cutscenes.cutscene4();
             Enemy enemy = new Enemy();
-            enemy.boss3(playerDeck, playerHealth);
+            enemy.boss3(playerDeck, playerHealth, consumable);
         }
         else
         {
             JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
                     , JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
-            enemy.boss3(playerDeck, playerHealth);
+            enemy.boss3(playerDeck, playerHealth, consumable);
         }
     }
 
-    public void directionChoice3(Deck playerDeck, PlayerStats playerHealth)
+    public void directionChoice3(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         JPanel panel = new JPanel();
         panel.add(new JLabel("With the boss sparking and ruined, peace settles into the room\n. What will you do" +
@@ -101,25 +116,32 @@ public class DirectionChoice
 
         if(result == JOptionPane.YES_OPTION)
         {
-            JOptionPane.showMessageDialog(null,"Event", "PLACEHOLDER"
-                    , JOptionPane.PLAIN_MESSAGE); // Possible event
+            JOptionPane.showMessageDialog(null,"You spot something on the ground and decide to" +
+                            " pick it up!", "Event"
+                    , JOptionPane.WARNING_MESSAGE);
+
+            // add CPU Upgrade to ArrayList
+            consumable.addConsumableCPU();
+
+            JOptionPane.showMessageDialog(null,"It seems to be a CPU Upgrade!"
+                    , "Event", JOptionPane.WARNING_MESSAGE);
 
             JOptionPane.showMessageDialog(null, "The room examined, you turn to up the stairs " +
                     "from before.", "Back on track!", JOptionPane.PLAIN_MESSAGE);
             cutscenes.cutscene5();
             Enemy enemy = new Enemy();
-            enemy.boss4(playerDeck, playerHealth);
+            enemy.boss4(playerDeck, playerHealth, consumable);
         }
         else
         {
             JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
                     , JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
-            enemy.boss4(playerDeck, playerHealth);
+            enemy.boss4(playerDeck, playerHealth, consumable);
         }
     }
 
-    public void directionChoice4(Deck playerDeck, PlayerStats playerHealth)
+    public void directionChoice4(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         JPanel panel = new JPanel();
         panel.add(new JLabel("After exiting the stairway, you find yourself riddled with choices\n. You can turn" +
@@ -137,7 +159,7 @@ public class DirectionChoice
                     "from before.", "Back on track!", JOptionPane.PLAIN_MESSAGE);
             cutscenes.cutscene6();
             Enemy enemy = new Enemy();
-            enemy.boss5(playerDeck, playerHealth);
+            enemy.boss5(playerDeck, playerHealth, consumable);
         }
         else if(result == JOptionPane.NO_OPTION)
         {
@@ -148,7 +170,7 @@ public class DirectionChoice
                     , JOptionPane.PLAIN_MESSAGE);
             cutscenes.cutscene6();
             Enemy enemy = new Enemy();
-            enemy.boss5(playerDeck, playerHealth);
+            enemy.boss5(playerDeck, playerHealth, consumable);
         }
         else
         {
@@ -156,11 +178,11 @@ public class DirectionChoice
                     , JOptionPane.PLAIN_MESSAGE);
             cutscenes.cutscene6();
             Enemy enemy = new Enemy();
-            enemy.boss5(playerDeck, playerHealth);
+            enemy.boss5(playerDeck, playerHealth, consumable);
         }
     }
 
-    public void directionChoice5(Deck playerDeck, PlayerStats playerHealth)
+    public void directionChoice5(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         JPanel panel = new JPanel();
         panel.add(new JLabel("You know that the Bot Lord resides behind this door. Your last challenge awaits.\n" +
@@ -174,7 +196,7 @@ public class DirectionChoice
                     , JOptionPane.PLAIN_MESSAGE);
             cutscenes.cutscene7();
             Enemy enemy = new Enemy();
-            enemy.finalBoss(playerDeck, playerHealth);
+            enemy.finalBoss(playerDeck, playerHealth, consumable);
             cutscenes.cutsceneEnd();
         }
         else
