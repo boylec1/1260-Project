@@ -13,7 +13,7 @@ public class Cutscene
                 "A time where the Earth is no longer suitable for living creatures.\n" +
                 "All that remains in this world is a society of sentient machines ruled by the iron grip of the Bot " +
                 "Lord.\n No one has ever seen the Bot Lord, but all have seen his evil army that constantly " +
-                "suppresses the good bots of this world.", "Really a bummer...", JOptionPane.INFORMATION_MESSAGE);
+                "suppress the good bots of this world.", "Really a bummer...", JOptionPane.INFORMATION_MESSAGE);
         JOptionPane.showMessageDialog(null, "You awake from the pitch black of a deep slumber " +
                 "to a flash of light.\n A loading screen appears in your vision", "Real-time UI overlay!"
                 , JOptionPane.INFORMATION_MESSAGE);
@@ -60,7 +60,7 @@ public class Cutscene
         JOptionPane.showMessageDialog(null, "The door creaks open to a scene of utter despair:" +
                 " a clean, well-lit office space.\n You see row upon ordered-row of small desks made of faux wood," +
                 " paired with small but ergonomic mesh chairs.\n Countless screens sit upon the desks, casting their " +
-                "evil blue-tinted glows across the room.\n Fluorescent lighting bears down pon the space with a fury."
+                "evil blue-tinted glows across the room.\n Fluorescent lighting bears down upon the space with a fury."
                 , "You can just feel the monotony.", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -89,7 +89,7 @@ public class Cutscene
     public void cutscene7()
     {
         JOptionPane.showMessageDialog(null, "As you continue past, your steps become heavy. " +
-                "Your very shoes feel made of lead.\n After pausing to consider, you realize there is no magic or " +
+                "Your shoes feel as if they were made of lead.\n After pausing to consider, you realize there is no magic or " +
                 "technology doing this; it is simply fear.\n A fear born of knowing just what lays beyond the door " +
                 "in front of you, the only path forward.", "Don't let it get to you!", JOptionPane.WARNING_MESSAGE);
         JOptionPane.showMessageDialog(null,"You enter a large room filled with every kind of " +
@@ -101,7 +101,7 @@ public class Cutscene
     public static void cutsceneDoorman()
     {
         JOptionPane.showMessageDialog(null, "You spot a shadowy figure and halt in your tracks." +
-                " As you approach you see a robotic doorman come into view.\nHe turns and spots you, lens eyes " +
+                " As you approach you see a robotic doorman come into view.\nHe turns and spots you, aperture lens eyes " +
                 "widening and says, \"You there! Halt!\"", "The Doorman", JOptionPane.PLAIN_MESSAGE);
     }
 
@@ -126,8 +126,8 @@ public class Cutscene
     public static void cutsceneServerus()
     {
         JOptionPane.showMessageDialog(null, "Serverus, the data dog, a watchful protector of " +
-                "the BotLord grimaces at the sight of an overly optimistic challenger.\n" +
-                " If you wish to achieve victory over the BotLord, you must first defeat Serverus."
+                "the Bot Lord grimaces at the sight of an overly optimistic challenger.\n" +
+                " If you wish to achieve victory over the Bot Lord, you must first defeat Serverus."
                 , "Yes, it has three heads.", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -183,7 +183,7 @@ public class Cutscene
     {
         JOptionPane.showMessageDialog(null, "You sway in place, weakness flooding your limbs.\n" +
                         "The room begins to blur and darken. As your life force fades, you think only of who may be\n" +
-                        " the one to stop the Bot Lord. Your hope for the next is the last thing to leave you."
+                        " the one to stop the Bot Lord. Your hope for the next hero is the last thing to leave you."
                 , "We'll never forget you...whatever your name was. Hey, go fire up the next one!"
                 , JOptionPane.ERROR_MESSAGE);
 
