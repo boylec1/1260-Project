@@ -1,75 +1,117 @@
 public class Enemy
 {
-    public void boss0()
-    {
-        //secret boss
-    }
     // First enemy
-    public void boss1(Deck playerDeck)
+    public void boss1(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
-        System.out.println( "You spot a shadowy figure and halt in your tracks. As you approach you see a " +
-                            "robotic doorman come into view. \nHe turns and spots you, lens eyes widening and says, \n\n" +
-                            "\"You there! Halt!\"");
+        // Stage-setting
+        Cutscene.cutsceneDoorman();
+        Cutscene.battleStart();
 
-        System.out.println("\n\nBattle Start" + "\n===============\n");
-
+        // Setup
         EnemyDeck bossOne = new EnemyDeck();
-        Combat combat = new Combat(playerDeck, bossOne);
+        EnemyStats doorman = new EnemyStats();
+        int doormanHealth = doorman.doorman();
+        int playerHP = playerHealth.getHealth();
+
+        // Combat
+        Combat combat = new Combat(playerDeck, bossOne, doormanHealth, playerHP, consumable);
+
+        // Cleanup
+        playerHealth.newHealth(combat.setNewPlayerHealth());
     }
-    
-    public void boss2(Deck playerDeck)
+
+    public void boss2(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
-        // Kitchen Boss
-        System.out.println( "The room falls silent as the chef and appliance bots stop their work to look at you.\n" +
-                            "The short, stocky bot that is sitting in the back of the room munching on fresh micro-chips notices you after a few seconds of silence.\n" +
-                            "He drops his food and, as he turns to face you, you can see the text on his over sized chef's hat reading \"HEAD CHEF\".\n\n" +
-                            "\"You're not supposed to be here!!\"");
+        // Stage-setting
+        Cutscene.cutsceneHeadChef();
+        Cutscene.battleStart();
 
-        System.out.println("\n\nBattle Start" + "\n===============\n");
-
+        // Setup
         EnemyDeck bossTwo = new EnemyDeck();
-        Combat combat = new Combat(playerDeck, bossTwo);
+        EnemyStats chef = new EnemyStats();
+        int chefHealth = chef.headChef();
+        int playerHP = playerHealth.getHealth();
+
+        // Combat
+        Combat combat = new Combat(playerDeck, bossTwo, chefHealth, playerHP, consumable);
+
+        // Cleanup
+        playerHealth.newHealth(combat.setNewPlayerHealth());
     }
-    
-    public void boss3(Deck playerDeck)
+
+    public void boss3(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
-        System.out.println("Standing in front of an open door to a private office is a large bot." +
-                "\nIts polo shirt has pockets with pens sticking out, and its khakis are well-pleated." +
-                "\n\nIt rushes forward shouting and waving TPS reports at you.");
+        // Stage-setting
+        Cutscene.cutsceneOfficeManager();
+        Cutscene.battleStart();
 
-        System.out.println("\n\nBattle Start" + "\n===============\n");
-
+        // Setup
         EnemyDeck bossThree = new EnemyDeck();
-        Combat combat = new Combat(playerDeck, bossThree);
+        EnemyStats officeBot = new EnemyStats();
+        int officeBotHealth = officeBot.officeManager();
+        int playerHP = playerHealth.getHealth();
+
+        // Combat
+        Combat combat = new Combat(playerDeck, bossThree, officeBotHealth, playerHP, consumable);
+
+        // Cleanup
+        playerHealth.newHealth(combat.setNewPlayerHealth());
     }
-    
-    public void boss4(Deck playerDeck)
+
+    public void boss4(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
-        System.out.println();// Serverus Boss Description
+        // Stage-setting
+        Cutscene.cutsceneServerus();
+        Cutscene.battleStart();
 
-        System.out.println("\n\nBattle Start" + "\n===============\n");
-
+        // Setup
         EnemyDeck bossFour = new EnemyDeck();
-        Combat combat = new Combat(playerDeck, bossFour);
+        EnemyStats ServerusBoss = new EnemyStats();
+        int ServerusHealth = ServerusBoss.Serverus();
+        int playerHP = playerHealth.getHealth();
+
+        // Combat
+        Combat combat = new Combat(playerDeck, bossFour, ServerusHealth, playerHP, consumable);
+
+        // Cleanup
+        playerHealth.newHealth(combat.setNewPlayerHealth());
     }
-    
-    public void boss5(Deck playerDeck)
+
+    public void boss5(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
-        System.out.println();// Final Boss Description
+        // Stage-setting
+        Cutscene.cutsceneFilezilla();
+        Cutscene.battleStart();
 
-        System.out.println("\n\nBattle Start" + "\n===============\n");
-
+        // Setup
         EnemyDeck bossFive = new EnemyDeck();
-        Combat combat = new Combat(playerDeck, bossFive);
+        EnemyStats fileZilla = new EnemyStats();
+        int fileZillaHealth = fileZilla.fileZilla();
+        int playerHP = playerHealth.getHealth();
+
+        // Combat
+        Combat combat = new Combat(playerDeck, bossFive, fileZillaHealth, playerHP, consumable);
+
+        // Cleanup
+        playerHealth.newHealth(combat.setNewPlayerHealth());
     }
 
-    public void finalBoss(Deck playerDeck)
+    public void finalBoss(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
-        System.out.println();// Final Boss Description
+        // Stage-setting
+        Cutscene.cutsceneFinalBoss();
+        Cutscene.battleStart();
 
-        System.out.println("\n\nBattle Start" + "\n===============\n");
-
+        // Setup
         EnemyDeck finalBoss = new EnemyDeck();
-        Combat combat = new Combat(playerDeck, finalBoss);
+        EnemyStats finalBossStats = new EnemyStats();
+        int finalBossHealth = finalBossStats.finalBoss();
+        int playerHP = playerHealth.getHealth();
+
+        // Combat
+        Combat combat = new Combat(playerDeck, finalBoss, finalBossHealth, playerHP, consumable);
+
+        // Cleanup
+        playerHealth.newHealth(combat.setNewPlayerHealth());
     }
 }

@@ -12,10 +12,10 @@ public class EnemyDeck
     public EnemyDeck()
     {
         for(int i = 0; i < 10; i++)
-            {
-                Card newCard = new Card();
-                cards.add(newCard);
-            }
+        {
+            Card newCard = new Card();
+            cards.add(newCard);
+        }
         this.deckCapacity = cards.size();
         this.isCardDealt = new boolean[cards.size()];
         currentCard = 0;
@@ -92,5 +92,5 @@ public class EnemyDeck
         Collections.shuffle(cards);
         currentCard = 0;
     }
-   
+
 }

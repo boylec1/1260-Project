@@ -1,29 +1,107 @@
+import javax.swing.*;
 import java.util.*;
 
-public class Consumable {
+public class Consumable
+{
 
-    // Fields
-    private String itemOne = "HI! I'M A PLACEHOLDER! MOO!";
-    private String itemTwo = "HI! I'M A PLACEHOLDER! MOO!";
-    private String itemThree = "HI! I'M A PLACEHOLDER! MOO!";
+    // Field
+    private String name = "";
+    private String effect = "";
+    private double damage;
+    private int healing = 0;
+    public ArrayList<String> consumablePack = new ArrayList<>();
+
 
     public Consumable()
     {
-        // Some constructor here. Maybe a randomizer? 
+        Random generator = new Random();
+
+        this.name = randomName(generator.nextInt(4)+1);
+        if (name.equals("Battery Pack"))
+        {
+            this.healing = generator.nextInt(5) + 1;
+            this.effect = "Healing";
+        }
+        else if (name.equals("CPU Upgrade"))
+        {
+            this.damage = generator.nextInt(5)+1;
+            this.effect = "Extra Damage";
+        }
+        else if(name.equals("Hammer"))
+        {
+            this.effect = "Smashes your enemies to pieces";
+        }
+        else
+        {
+
+        }
     }
 
-    public void useItemOne()
+    public void addConsumableBattery()
     {
-        // This is probably where it'll do something really cool and interact with stuffs
+        consumablePack.add("Battery Pack");
     }
 
-    public void useItemTwo()
+    public void removeConsumableBattery()
     {
-        // This is probably where it'll do something really cool and interact with stuffs
+        consumablePack.remove("Battery Pack");
     }
 
-    public void useItemThree()
+    public void addConsumableCPU()
     {
-        // This is probably where it'll do something really cool and interact with stuffs
+        consumablePack.add("CPU Upgrade");
     }
+
+    public void removeConsumableCPU()
+    {
+        consumablePack.remove("CPU Upgrade");
+    }
+
+    public void addConsumableHammer()
+    {
+        consumablePack.add("Hammer");
+    }
+
+    public void removeConsumableHammer()
+    {
+        consumablePack.remove("Hammer");
+    }
+
+    public void displayConsumables()
+    {
+        System.out.println("Consumables you have: ");
+        for(String consumables : consumablePack)
+        {
+            System.out.println(consumables);
+        }
+    }
+
+    public String randomName(int thePick)
+    {
+
+        String theName = "";
+
+        switch(thePick){
+            case 1:
+                theName = "Battery Pack";
+                break;
+            case 2:
+                theName = "CPU Upgrade";
+                break;
+            case 3:
+                theName = "Hammer";
+                break;
+            case 4:
+                theName = "";
+                break;
+        }
+
+        return theName;
+    }
+
+    public void consumableMenu(Deck playerDeck, EnemyDeck enemyDeck, int enemyHP, int playerHealth, Consumable consumable)
+    {
+
+    }
+
 }
