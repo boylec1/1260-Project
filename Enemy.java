@@ -1,7 +1,7 @@
 public class Enemy
 {
     // First enemy
-    public void boss1(Deck playerDeck, PlayerStats playerHealth)
+    public void boss1(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         // Stage-setting
         Cutscene.cutsceneDoorman();
@@ -14,13 +14,13 @@ public class Enemy
         int playerHP = playerHealth.getHealth();
 
         // Combat
-        Combat combat = new Combat(playerDeck, bossOne, doormanHealth, playerHP);
+        Combat combat = new Combat(playerDeck, bossOne, doormanHealth, playerHP, consumable);
 
         // Cleanup
         playerHealth.newHealth(combat.setNewPlayerHealth());
     }
 
-    public void boss2(Deck playerDeck, PlayerStats playerHealth)
+    public void boss2(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         // Stage-setting
         Cutscene.cutsceneHeadChef();
@@ -33,13 +33,13 @@ public class Enemy
         int playerHP = playerHealth.getHealth();
 
         // Combat
-        Combat combat = new Combat(playerDeck, bossTwo, chefHealth, playerHP);
+        Combat combat = new Combat(playerDeck, bossTwo, chefHealth, playerHP, consumable);
 
         // Cleanup
         playerHealth.newHealth(combat.setNewPlayerHealth());
     }
 
-    public void boss3(Deck playerDeck, PlayerStats playerHealth)
+    public void boss3(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         // Stage-setting
         Cutscene.cutsceneOfficeManager();
@@ -52,13 +52,13 @@ public class Enemy
         int playerHP = playerHealth.getHealth();
 
         // Combat
-        Combat combat = new Combat(playerDeck, bossThree, officeBotHealth, playerHP);
+        Combat combat = new Combat(playerDeck, bossThree, officeBotHealth, playerHP, consumable);
 
         // Cleanup
         playerHealth.newHealth(combat.setNewPlayerHealth());
     }
 
-    public void boss4(Deck playerDeck, PlayerStats playerHealth)
+    public void boss4(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         // Stage-setting
         Cutscene.cutsceneServerus();
@@ -71,13 +71,13 @@ public class Enemy
         int playerHP = playerHealth.getHealth();
 
         // Combat
-        Combat combat = new Combat(playerDeck, bossFour, ServerusHealth, playerHP);
+        Combat combat = new Combat(playerDeck, bossFour, ServerusHealth, playerHP, consumable);
 
         // Cleanup
         playerHealth.newHealth(combat.setNewPlayerHealth());
     }
 
-    public void boss5(Deck playerDeck, PlayerStats playerHealth)
+    public void boss5(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         // Stage-setting
         Cutscene.cutsceneFilezilla();
@@ -90,13 +90,13 @@ public class Enemy
         int playerHP = playerHealth.getHealth();
 
         // Combat
-        Combat combat = new Combat(playerDeck, bossFive, fileZillaHealth, playerHP);
+        Combat combat = new Combat(playerDeck, bossFive, fileZillaHealth, playerHP, consumable);
 
         // Cleanup
         playerHealth.newHealth(combat.setNewPlayerHealth());
     }
 
-    public void finalBoss(Deck playerDeck, PlayerStats playerHealth)
+    public void finalBoss(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         // Stage-setting
         Cutscene.cutsceneFinalBoss();
@@ -109,7 +109,7 @@ public class Enemy
         int playerHP = playerHealth.getHealth();
 
         // Combat
-        Combat combat = new Combat(playerDeck, finalBoss, finalBossHealth, playerHP);
+        Combat combat = new Combat(playerDeck, finalBoss, finalBossHealth, playerHP, consumable);
 
         // Cleanup
         playerHealth.newHealth(combat.setNewPlayerHealth());
