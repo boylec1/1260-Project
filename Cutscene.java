@@ -227,19 +227,21 @@ public class Cutscene
 
     public static void cutsceneDoormanMinion()
     {
-        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+        JOptionPane.showMessageDialog(null, "As you approch your destination, you see a robot wearing a little hat that moves toward you with the speed of lightning.\nIs that a bell boy bot?"
                 , "The Doorman's Minion", JOptionPane.PLAIN_MESSAGE);
     }
 
     public static void cutsceneChefMinion()
     {
-        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+        JOptionPane.showMessageDialog(null, "While you are in the kitchen, another bot challenges you to a battle\nIt has a smaller hat than the Head Chef, and you can\nsee it reads 'Sous Chef'" + 
+                                      "It is shorter than the Head Chef and looks as though it got into some mess."
                 , "The Head Chef's Minion", JOptionPane.PLAIN_MESSAGE);
     }
 
     public static void cutsceneOfficeMinion()
     {
-        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+        JOptionPane.showMessageDialog(null, "As you look around, another minion spots you and looks as though it wants to challenge you, but it is moving slowly\n as if it's been overworked." + 
+                                      "It looks tired, if a robot can look such a way. It holds a stack of messily organized papers."
                 , "The Office Manager's Minion", JOptionPane.PLAIN_MESSAGE);
     }
 
@@ -251,7 +253,7 @@ public class Cutscene
 
     public static void cutsceneServerusMinion()
     {
-        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+        JOptionPane.showMessageDialog(null, "As yet another minion challenges you, you can tell this one might be the strongest you've faced.\nIt looks as if it has limitless energy and it carries an extension cord that is frayed at one end."
                 , "Serverus' Minion", JOptionPane.PLAIN_MESSAGE);
     }
 }
