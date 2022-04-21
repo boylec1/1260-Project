@@ -114,4 +114,100 @@ public class Enemy
         // Cleanup
         playerHealth.newHealth(combat.setNewPlayerHealth());
     }
+
+    // Minion encounters
+    public void doormanMinion(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
+    {
+        // Stage-setting
+        Cutscene.cutsceneDoormanMinion();
+        Cutscene.battleStart();
+
+        // Setup
+        EnemyDeck doormanMinion = new EnemyDeck();
+        EnemyStats doormanMinionStats = new EnemyStats();
+        int doormanMinionHealth = doormanMinionStats.getHealth();
+        int playerHP = playerHealth.getHealth();
+
+        // Combat
+        Combat combat = new Combat(playerDeck, doormanMinion, doormanMinionHealth, playerHP, consumable);
+
+        // Cleanup
+        playerHealth.newHealth(combat.setNewPlayerHealth());
+    }
+
+    public void chefMinion(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
+    {
+        // Stage-setting
+        Cutscene.cutsceneChefMinion();
+        Cutscene.battleStart();
+
+        // Setup
+        EnemyDeck chefMinion = new EnemyDeck();
+        EnemyStats chefMinionStats = new EnemyStats();
+        int chefMinionHealth = chefMinionStats.getHealth();
+        int playerHP = playerHealth.getHealth();
+
+        // Combat
+        Combat combat = new Combat(playerDeck, chefMinion, chefMinionHealth, playerHP, consumable);
+
+        // Cleanup
+        playerHealth.newHealth(combat.setNewPlayerHealth());
+    }
+
+    public void officeMinion(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
+    {
+        // Stage-setting
+        Cutscene.cutsceneOfficeMinion();
+        Cutscene.battleStart();
+
+        // Setup
+        EnemyDeck officeMinion = new EnemyDeck();
+        EnemyStats officeMinionStats = new EnemyStats();
+        int officeMinionHealth = officeMinionStats.getHealth();
+        int playerHP = playerHealth.getHealth();
+
+        // Combat
+        Combat combat = new Combat(playerDeck, officeMinion, officeMinionHealth, playerHP, consumable);
+
+        // Cleanup
+        playerHealth.newHealth(combat.setNewPlayerHealth());
+    }
+
+    public void serverusMinion(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
+    {
+        // Stage-setting
+        Cutscene.cutsceneServerusMinion();
+        Cutscene.battleStart();
+
+        // Setup
+        EnemyDeck serverusMinion = new EnemyDeck();
+        EnemyStats serverusMinionStats = new EnemyStats();
+        int serverusMinionHealth = serverusMinionStats.getHealth();
+        int playerHP = playerHealth.getHealth();
+
+        // Combat
+        Combat combat = new Combat(playerDeck, serverusMinion, serverusMinionHealth, playerHP, consumable);
+
+        // Cleanup
+        playerHealth.newHealth(combat.setNewPlayerHealth());
+    }
+
+    public void filezillaMinion(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
+    {
+        // Stage-setting
+        Cutscene.cutsceneFilezillaMinion();
+        Cutscene.battleStart();
+
+        // Setup
+        EnemyDeck filezillaMinion = new EnemyDeck();
+        EnemyStats filezillaMinionStats = new EnemyStats();
+        int filezillaMinionHealth = filezillaMinionStats.getHealth();
+        int playerHP = playerHealth.getHealth();
+
+        // Combat
+        Combat combat = new Combat(playerDeck, filezillaMinion, filezillaMinionHealth, playerHP, consumable);
+
+        // Cleanup
+        playerHealth.newHealth(combat.setNewPlayerHealth());
+    }
 }

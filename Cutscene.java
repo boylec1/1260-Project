@@ -164,12 +164,26 @@ public class Cutscene
                 , "What? They did it? EHEM, I mean, yeah, we knew you could do it!", JOptionPane.WARNING_MESSAGE);
     }
 
+    // Battle Start
+    public static void battleStart()
+    {
+        JOptionPane.showMessageDialog(null,"Battle Start", "Go get'em!"
+                , JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    // Battle Win
+    public static void youWin()
+    {
+        JOptionPane.showMessageDialog(null,"You are victorious!", "We knew you could do it."
+                , JOptionPane.PLAIN_MESSAGE);
+    }
+
     // Game Over
     public static void gameOver()
     {
         JOptionPane.showMessageDialog(null, "You sway in place, weakness flooding your limbs.\n" +
-                "The room begins to blur and darken. As your life force fades, you think only of who may be\n" +
-                " the one to stop the Bot Lord. Your hope for the next is the last thing to leave you."
+                        "The room begins to blur and darken. As your life force fades, you think only of who may be\n" +
+                        " the one to stop the Bot Lord. Your hope for the next is the last thing to leave you."
                 , "We'll never forget you...whatever your name was. Hey, go fire up the next one!"
                 , JOptionPane.ERROR_MESSAGE);
 
@@ -178,11 +192,12 @@ public class Cutscene
         System.exit(0);
     }
 
-    // Battle Win
-    public static void youWin()
+    // FORGE YOUR DESTINY
+    public static void enterCastle()
     {
-        JOptionPane.showMessageDialog(null,"You are victorious!", "We knew you could do it."
-                , JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null, "\nYou steel yourself and push forward through" +
+                        " the door of the castle. You resolve that the Bot Lord will see his end this day."
+                , "Huzzah!", JOptionPane.PLAIN_MESSAGE);
     }
 
     // Leave Option
@@ -196,9 +211,47 @@ public class Cutscene
         System.exit(0);
     }
 
-    public static void battleStart()
+    // Fight an enemy
+    public static void fightEnemy()
     {
-        JOptionPane.showMessageDialog(null,"Battle Start", "Go get'em!"
-                , JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
+                , JOptionPane.PLAIN_MESSAGE);
+    }
+
+    // Find consumable event
+    public static void findConsumable()
+    {
+        JOptionPane.showMessageDialog(null,"After a brief search through the room\n" +
+                "you turn over some broken furniture and find an item!", "It's shiny!", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static void cutsceneDoormanMinion()
+    {
+        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+                , "The Doorman's Minion", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static void cutsceneChefMinion()
+    {
+        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+                , "The Head Chef's Minion", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static void cutsceneOfficeMinion()
+    {
+        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+                , "The Office Manager's Minion", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static void cutsceneFilezillaMinion()
+    {
+        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+                , "Filezilla's Minion", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static void cutsceneServerusMinion()
+    {
+        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+                , "Serverus' Minion", JOptionPane.PLAIN_MESSAGE);
     }
 }

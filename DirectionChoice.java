@@ -21,15 +21,15 @@ public class DirectionChoice
 
         if(result == JOptionPane.YES_OPTION)
         {
-            JOptionPane.showMessageDialog(null, "\nYou steel yourself and push forward through" +
-                    " the door of the castle. You resolve that the Bot Lord will see his end this day.", "Huzzah!"
-                    , JOptionPane.PLAIN_MESSAGE);
+            // Boss Battle
+            Cutscene.enterCastle();
             Enemy enemy = new Enemy();
             enemy.boss1(playerDeck, playerHealth, consumable);
             cutscenes.cutscene2();
         }
         else
         {
+            // "Leave" option
             Cutscene.coward();
         }
     }
@@ -50,7 +50,7 @@ public class DirectionChoice
                     " pick it up!", "Event"
                     , JOptionPane.WARNING_MESSAGE);
 
-            // add battery consumable to ArrayList
+            // Event
             consumable.addConsumableBattery();
 
             JOptionPane.showMessageDialog(null,"It seems to be a battery pack!"
@@ -58,12 +58,19 @@ public class DirectionChoice
 
             JOptionPane.showMessageDialog(null, "You exit the room and continue down the hallway."
                     , "Onward!", JOptionPane.PLAIN_MESSAGE);
+
+            // Or minion battle
+            Enemy minion = new Enemy();
+            minion.chefMinion(playerDeck, playerHealth, consumable);
+
+            // Boss Battle
             cutscenes.cutscene3();
             Enemy enemy = new Enemy(); //You fight kitchen boss anyway but at least you got an item first
             enemy.boss2(playerDeck, playerHealth, consumable); //kitchen boss
         }
         else
         {
+            // Boss Battle
             JOptionPane.showMessageDialog(null, "You walk down the path to the right."
                     , "To the right!", JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
@@ -81,11 +88,11 @@ public class DirectionChoice
 
         if(result == JOptionPane.YES_OPTION)
         {
+            // Event
             JOptionPane.showMessageDialog(null,"You spot something on the ground and decide to" +
                             " pick it up!", "Event"
                     , JOptionPane.WARNING_MESSAGE);
 
-            // add hammer to ArrayList
             consumable.addConsumableHammer();
 
             JOptionPane.showMessageDialog(null,"It seems to be a hammer!"
@@ -93,12 +100,19 @@ public class DirectionChoice
 
             JOptionPane.showMessageDialog(null, "You exit the room and continue down the hallway."
                     , "The other way!", JOptionPane.PLAIN_MESSAGE);
+
+            // Minion Battle
+            Enemy minion = new Enemy();
+            minion.officeMinion(playerDeck, playerHealth, consumable);
+
+            // Boss Battle
             cutscenes.cutscene4();
             Enemy enemy = new Enemy();
             enemy.boss3(playerDeck, playerHealth, consumable);
         }
         else
         {
+            // Boss Battle
             JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
                     , JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
@@ -116,11 +130,11 @@ public class DirectionChoice
 
         if(result == JOptionPane.YES_OPTION)
         {
+            // Event
             JOptionPane.showMessageDialog(null,"You spot something on the ground and decide to" +
                             " pick it up!", "Event"
                     , JOptionPane.WARNING_MESSAGE);
 
-            // add CPU Upgrade to ArrayList
             consumable.addConsumableCPU();
 
             JOptionPane.showMessageDialog(null,"It seems to be a CPU Upgrade!"
@@ -128,12 +142,19 @@ public class DirectionChoice
 
             JOptionPane.showMessageDialog(null, "The room examined, you turn to up the stairs " +
                     "from before.", "Back on track!", JOptionPane.PLAIN_MESSAGE);
+
+            // Minion Battle
+            Enemy minion = new Enemy();
+            minion.serverusMinion(playerDeck, playerHealth, consumable);
+
+            // Boss Battle
             cutscenes.cutscene5();
             Enemy enemy = new Enemy();
             enemy.boss4(playerDeck, playerHealth, consumable);
         }
         else
         {
+            // Boss Battle
             JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
                     , JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
@@ -152,20 +173,26 @@ public class DirectionChoice
 
         if(result == JOptionPane.YES_OPTION)
         {
+            // Event
             JOptionPane.showMessageDialog(null,"Event", "PLACEHOLDER"
                     , JOptionPane.PLAIN_MESSAGE); // Possible event
 
             JOptionPane.showMessageDialog(null, "The room examined, you turn to up the stairs " +
                     "from before.", "Back on track!", JOptionPane.PLAIN_MESSAGE);
+
+
+            // Boss Battle
             cutscenes.cutscene6();
             Enemy enemy = new Enemy();
             enemy.boss5(playerDeck, playerHealth, consumable);
         }
         else if(result == JOptionPane.NO_OPTION)
         {
-            JOptionPane.showMessageDialog(null,"Event", "PLACEHOLDER"
-                    , JOptionPane.PLAIN_MESSAGE); // Possible event
+            // Minion Battle
+            Enemy minion = new Enemy();
+            minion.filezillaMinion(playerDeck, playerHealth, consumable);
 
+            // Boss Battle
             JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
                     , JOptionPane.PLAIN_MESSAGE);
             cutscenes.cutscene6();
@@ -174,6 +201,7 @@ public class DirectionChoice
         }
         else
         {
+            // Boss Battle
             JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
                     , JOptionPane.PLAIN_MESSAGE);
             cutscenes.cutscene6();
@@ -192,6 +220,7 @@ public class DirectionChoice
 
         if(result == JOptionPane.YES_OPTION)
         {
+            // Final Boss Battle
             JOptionPane.showMessageDialog(null, "Final Boss Fight", "It's the boss!"
                     , JOptionPane.PLAIN_MESSAGE);
             cutscenes.cutscene7();
@@ -201,6 +230,7 @@ public class DirectionChoice
         }
         else
         {
+            // "Flee" option
             Cutscene.coward();
         }
     }
