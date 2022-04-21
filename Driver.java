@@ -5,17 +5,18 @@ public class Driver
         Cutscene cutscenes = new Cutscene();
         DirectionChoice direction = new DirectionChoice();
         Enemy enemy = new Enemy();
+        Consumable consumable = new Consumable();
 
         cutscenes.cutscene1(); // Intro cutscene
         cutscenes.enterName(); // Enter name
         Deck playerDeck = new Deck();
         PlayerStats playerHealth = new PlayerStats();
 
-        direction.directionChoice0(playerDeck, playerHealth); // Choice of entering castle or turning around
-        direction.directionChoice1(playerDeck, playerHealth); // Hallway choice: left or right
-        direction.directionChoice2(playerDeck, playerHealth); // Hallway choice: left or right
-        direction.directionChoice3(playerDeck, playerHealth); // Office choice: Up the stairs, or look around
-        direction.directionChoice4(playerDeck, playerHealth); // Hallway choice: left, forward, or right
-        direction.directionChoice5(playerDeck, playerHealth); // "Choice" of opening door to final boss
+        direction.directionChoice0(playerDeck, playerHealth, consumable); // Choice of entering castle or turning around
+        direction.directionChoice1(playerDeck, playerHealth, consumable); // Hallway choice: left or right
+        direction.directionChoice2(playerDeck, playerHealth, consumable); // Hallway choice: left or right
+        direction.directionChoice3(playerDeck, playerHealth, consumable); // Office choice: Up the stairs, or look around
+        direction.directionChoice4(playerDeck, playerHealth, consumable); // Hallway choice: left, forward, or right
+        direction.directionChoice5(playerDeck, playerHealth, consumable); // "Choice" of opening door to final boss
     }
 }
