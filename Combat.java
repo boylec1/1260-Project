@@ -46,6 +46,7 @@ public class Combat {
             consumable.consumableMenu(playerDeck, enemyDeck, enemyHP, playerHP, consumable);
 
             ArrayList<String> arrayList = consumable.consumablePack;
+
             Object[] option = new Object[arrayList.size()];
             arrayList.toArray(option);
 
@@ -312,3 +313,8 @@ public class Combat {
     }
 
 }
+
+
+
+
+
