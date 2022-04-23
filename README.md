@@ -1,12 +1,14 @@
 # 1260-Project
 
 
-The most recent build I've got (4/18/2022). Changes include:
+The most recent build I've got (4/23/2022). Changes include:
 
-Cutscene cleanup: I've gone through and added a bunch of cutscenes to take the place of dialog options elsewhere. Nothing has really been changed, just moved/consolidated to make it look cleaner. Lots of dialog in Enemy and DirectionChoice are now calls to Cutscene.java with their own methods.
+Roguelike addition is up!
 
-Card choice: I've added a card chooser mechanic to the beginning of the game. Now instead of getting a completely random set of 10 cards, the player will choose 1 of 3 cards, 10 times. This gives our game some player agency, allows the player to have a hand in their own destiny. This (in my opinion) turns this from an interactive story to a card game.
+Player cards will now power up based on previous failed attempts. Each prior attempt that ended in a player reduced to zero HP (i.e. Cutscene.coward doesn't count) adds 1 to the attack and defense value of the cards generated for the player. Appropriate flavor text has also been added ("Name" is saved in the text file when a player loses, and a popup shows how many powerups a player is getting during deck creation).
 
-Attributes have been quantified: Attributes now alter combat! Combat damage now takes them into affect. Viruses deal x2 damage EXCEPT against Antiviruses, Software provides a +1 attack, and Hardware provides a +1 defense. Data is currently set as base card value, no modifier. All of these values can change, I just kind of chose stuff to see if it worked.
+Because of this, I also created a new class, EnemyCard, for the enemy cards. This way they do not also scale with the failed attempts during card creation.
 
-Cutscenes have been put in the proper order. Had a few things out of order and it looked a little wonky, but it should all flow in the right order now.
+While this is cool, I noticed that it scales FAST. Because of this, I also changed the enemy card attack/defense generation to make them a bit beefier. The consequence of this is that early runs are more likely to fail (and like, REALLY fail), but after about 3-4 runs, the player begins to catch up and take over. This can obviously be tweaked, but I think nearly ensuring failure for the first 1-2 runs isn't so bad with the addition of this mechanic.
+
+Another possible idea I had was to also scale the enemy cards off failed attempts, but at a different rate. So maybe the enemy cards scale at half the rate player cards do. This would be instead of the scalar I gave them (or maybe just knock the scalar down a bit and do this). 
