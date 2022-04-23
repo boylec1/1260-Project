@@ -1,63 +1,32 @@
-import java.util.ArrayList;
+
 import java.util.Random;
-import java.io.*;
-import java.util.Scanner;
-import javax.swing.*;
 
-public class Card
-{
-    private int cardAttack;
-    private int cardDefense;
-    private int fallenHeroes = 0;
-    private String cardAttribute;
-    private String cardName;
+public class EnemyCard extends Card{
 
-    public Card(int cardAttack, int cardDefense, String cardAttribute, String cardName)
+    private int enemyCardAttack;
+    private int enemyCardDefense;
+    private String enemyCardAttribute;
+    private String enemyCardName;
+
+    public EnemyCard(int cardAttack, int cardDefense, String cardAttribute, String cardName)
     {
-        this.cardAttack = cardAttack;
-        this.cardDefense = cardDefense;
-        this.cardAttribute = cardAttribute;
-        this.cardName = cardName;
+        this.enemyCardAttack = cardAttack;
+        this.enemyCardDefense = cardDefense;
+        this.enemyCardAttribute = cardAttribute;
+        this.enemyCardName = cardName;
     }
-    
-    public Card()
+
+    public EnemyCard()
     {
         Random generator = new Random();
-        // IO File Reader goes here
-        try
-        {
-            File readFile = new File("Nexthero.txt");
-            if(readFile.exists()) {
-                Scanner inputFile = new Scanner(readFile);
-                ArrayList<String> attempts = new ArrayList<>();
 
-                while (inputFile.hasNext()) {
-                    attempts.add(inputFile.nextLine());
-                }
-                this.fallenHeroes = attempts.size();
-            }
-
-            this.cardAttack = (generator.nextInt(5) + 1) + fallenHeroes; // + the IO reader line count
-            this.cardDefense = (generator.nextInt(5) + 1) + fallenHeroes; // + the IO reader line count
-            this.cardAttribute = randomAttribute(generator.nextInt(5)+1);
-            this.cardName = randomName();
-
-            /*else
-            {
-                this.cardAttack = (generator.nextInt(5) + 1); // + the IO reader line count
-                this.cardDefense = (generator.nextInt(5) + 1); // + the IO reader line count
-                this.cardAttribute = randomAttribute(generator.nextInt(5)+1);
-                this.cardName = randomName();
-            }*/
-
-        }
-        catch(IOException e)
-        {
-            System.out.println(e.getMessage());
-        }
+        this.enemyCardAttack = (generator.nextInt(8) + 3); // + the IO reader line count
+        this.enemyCardDefense = (generator.nextInt(8) + 3); // + the IO reader line count
+        this.enemyCardAttribute = randomEnemyAttribute(generator.nextInt(5)+1);
+        this.enemyCardName = randomEnemyName();
     }
 
-    public String randomAttribute(int thePick)
+    public String randomEnemyAttribute(int thePick)
     {
 
         String theAttribute = "";
@@ -83,7 +52,7 @@ public class Card
         return theAttribute;
     }
 
-    public String randomName()
+    public String randomEnemyName()
     {
         Random generator = new Random();
 
@@ -120,45 +89,41 @@ public class Card
         return theName;
     }
 
-    public int getCardAttack()
+    public int getEnemyCardAttack()
     {
-        return cardAttack;
+        return enemyCardAttack;
     }
 
-    public int getCardDefense()
+    public int getEnemyCardDefense()
     {
-        return cardDefense;
+        return enemyCardDefense;
     }
 
-    public String getCardAttribute()
+    public String getEnemyCardAttribute()
     {
-        return cardAttribute;
+        return enemyCardAttribute;
     }
 
-    public String getCardName()
+    public String getEnemyCardName()
     {
-        return cardName;
+        return enemyCardName;
     }
 
-    public void setCardAttack(int attackValue)
+    public void setEnemyCardAttack(int attackValue)
     {
-        this.cardAttack += attackValue;
-    }
-
-    public int getFallenHeroes() {
-        return fallenHeroes;
+        this.enemyCardAttack += attackValue;
     }
 
     public String toString()
     {
-        String aCard = "";
-        aCard += "========================================================\n";
-        aCard += "|| Card Name:\t\t" + cardName + "||\n"; // need to be able to generate names, if we're going to have names
-        aCard += "|| Attack Value:\t" + cardAttack + "\t\t\t\t\t\t\t\t  ||\n";
-        aCard += "|| Defense Value:\t" + cardDefense + "\t\t\t\t\t\t\t\t  ||\n";
-        aCard += "|| Special Action:\t" + cardAttribute + "\t\t\t\t\t\t  ||\n";
-        aCard += "========================================================\n";
+        String enCard = "";
+        enCard += "========================================================\n";
+        enCard += "|| Card Name:\t\t" + enemyCardName + "||\n"; // need to be able to generate names, if we're going to have names
+        enCard += "|| Attack Value:\t" + enemyCardAttack + "\t\t\t\t\t\t\t\t  ||\n";
+        enCard += "|| Defense Value:\t" + enemyCardDefense + "\t\t\t\t\t\t\t\t  ||\n";
+        enCard += "|| Special Action:\t" + enemyCardAttribute + "\t\t\t\t\t\t  ||\n";
+        enCard += "========================================================\n";
 
-        return aCard;
+        return enCard;
     }
 }

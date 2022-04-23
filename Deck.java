@@ -1,5 +1,8 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 import javax.swing.*;
 
 public class Deck
@@ -9,10 +12,41 @@ public class Deck
     private boolean[] isCardDealt;
     private int numberOfCards = 0;
     private int currentCard;
+    private int fallenHeroes;
     private Object[] options = { "Card " + 1, "Card " + 2, "Card " + 3};
 
     public Deck()
     {
+        try {
+            File readFile = new File("Nexthero.txt");
+            if (readFile.exists()) {
+                Scanner inputFile = new Scanner(readFile);
+                ArrayList<String> attempts = new ArrayList<>();
+
+                while (inputFile.hasNext()) {
+                    attempts.add(inputFile.nextLine());
+                }
+                this.fallenHeroes = attempts.size();
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        if(fallenHeroes == 1)
+        {
+            JOptionPane.showMessageDialog(null, "You feel the strength of " + fallenHeroes +
+                    " fallen hero flood your limbs. Your cards gain their strength.", "You fall is " +
+                    "inevitable, Bot Lord!", JOptionPane.PLAIN_MESSAGE);
+        }
+        else if(fallenHeroes > 1)
+        {
+            JOptionPane.showMessageDialog(null, "You feel the strength of " + fallenHeroes +
+                    " fallen heroes flood your limbs. Your cards gain their strength.", "You fall is " +
+                    "inevitable, Bot Lord!", JOptionPane.PLAIN_MESSAGE);
+        }
+
         for(int i = 0; i < 10; i++)
         {
             System.out.println("Current deck size: " + cards.size() + "/10");

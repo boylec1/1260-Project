@@ -1,29 +1,61 @@
+import javax.swing.*;
 import java.util.*;
 
-public class Consumable {
+public class Consumable
+{
 
-    // Fields
-    private String itemOne = "HI! I'M A PLACEHOLDER! MOO!";
-    private String itemTwo = "HI! I'M A PLACEHOLDER! MOO!";
-    private String itemThree = "HI! I'M A PLACEHOLDER! MOO!";
+    // Field
+    private String name = "";
+    private String effect = "";
+    private double damage;
+    private int healing = 0;
+    public ArrayList<String> consumablePack = new ArrayList<>();
 
-    public Consumable()
+
+
+    public void addConsumableBattery()
     {
-        // Some constructor here. Maybe a randomizer? 
+        consumablePack.add("Battery Pack");
     }
 
-    public void useItemOne()
+    public void removeConsumableBattery()
     {
-        // This is probably where it'll do something really cool and interact with stuffs
+        consumablePack.remove("Battery Pack");
     }
 
-    public void useItemTwo()
+    public void addConsumableCPU()
     {
-        // This is probably where it'll do something really cool and interact with stuffs
+        consumablePack.add("CPU Upgrade");
     }
 
-    public void useItemThree()
+    public void removeConsumableCPU()
     {
-        // This is probably where it'll do something really cool and interact with stuffs
+        consumablePack.remove("CPU Upgrade");
     }
+
+    public void addConsumableHammer()
+    {
+        consumablePack.add("Hammer");
+    }
+
+    public void removeConsumableHammer()
+    {
+        consumablePack.remove("Hammer");
+    }
+
+    public void displayConsumables()
+    {
+        System.out.println("Consumables you have: ");
+        for(String consumables : consumablePack)
+        {
+            System.out.println(consumables);
+        }
+    }
+
+
+    public void consumableMenu(Deck playerDeck, EnemyDeck enemyDeck, int enemyHP, int playerHealth, Consumable consumable)
+    {
+
+    }
+
 }

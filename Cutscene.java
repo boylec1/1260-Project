@@ -1,9 +1,9 @@
-import java.util.Scanner;
+import java.io.*;
 import javax.swing.*;
 
 public class Cutscene
 {
-    private String name;
+    static String name;
 
     // Intro cutscene describing the setting and the goal of the player as well as the exterior of the castle
     public void cutscene1()
@@ -13,7 +13,7 @@ public class Cutscene
                 "A time where the Earth is no longer suitable for living creatures.\n" +
                 "All that remains in this world is a society of sentient machines ruled by the iron grip of the Bot " +
                 "Lord.\n No one has ever seen the Bot Lord, but all have seen his evil army that constantly " +
-                "suppresses the good bots of this world.", "Really a bummer...", JOptionPane.INFORMATION_MESSAGE);
+                "suppress the good bots of this world.", "Really a bummer...", JOptionPane.INFORMATION_MESSAGE);
         JOptionPane.showMessageDialog(null, "You awake from the pitch black of a deep slumber " +
                 "to a flash of light.\n A loading screen appears in your vision", "Real-time UI overlay!"
                 , JOptionPane.INFORMATION_MESSAGE);
@@ -60,7 +60,7 @@ public class Cutscene
         JOptionPane.showMessageDialog(null, "The door creaks open to a scene of utter despair:" +
                 " a clean, well-lit office space.\n You see row upon ordered-row of small desks made of faux wood," +
                 " paired with small but ergonomic mesh chairs.\n Countless screens sit upon the desks, casting their " +
-                "evil blue-tinted glows across the room.\n Fluorescent lighting bears down pon the space with a fury."
+                "evil blue-tinted glows across the room.\n Fluorescent lighting bears down upon the space with a fury."
                 , "You can just feel the monotony.", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -89,7 +89,7 @@ public class Cutscene
     public void cutscene7()
     {
         JOptionPane.showMessageDialog(null, "As you continue past, your steps become heavy. " +
-                "Your very shoes feel made of lead.\n After pausing to consider, you realize there is no magic or " +
+                "Your shoes feel as if they were made of lead.\n After pausing to consider, you realize there is no magic or " +
                 "technology doing this; it is simply fear.\n A fear born of knowing just what lays beyond the door " +
                 "in front of you, the only path forward.", "Don't let it get to you!", JOptionPane.WARNING_MESSAGE);
         JOptionPane.showMessageDialog(null,"You enter a large room filled with every kind of " +
@@ -101,7 +101,7 @@ public class Cutscene
     public static void cutsceneDoorman()
     {
         JOptionPane.showMessageDialog(null, "You spot a shadowy figure and halt in your tracks." +
-                " As you approach you see a robotic doorman come into view.\nHe turns and spots you, lens eyes " +
+                " As you approach you see a robotic doorman come into view.\nHe turns and spots you, aperture lens eyes " +
                 "widening and says, \"You there! Halt!\"", "The Doorman", JOptionPane.PLAIN_MESSAGE);
     }
 
@@ -126,8 +126,8 @@ public class Cutscene
     public static void cutsceneServerus()
     {
         JOptionPane.showMessageDialog(null, "Serverus, the data dog, a watchful protector of " +
-                "the BotLord grimaces at the sight of an overly optimistic challenger.\n" +
-                " If you wish to achieve victory over the BotLord, you must first defeat Serverus."
+                "the Bot Lord grimaces at the sight of an overly optimistic challenger.\n" +
+                " If you wish to achieve victory over the Bot Lord, you must first defeat Serverus."
                 , "Yes, it has three heads.", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -164,18 +164,11 @@ public class Cutscene
                 , "What? They did it? EHEM, I mean, yeah, we knew you could do it!", JOptionPane.WARNING_MESSAGE);
     }
 
-    // Game Over
-    public static void gameOver()
+    // Battle Start
+    public static void battleStart()
     {
-        JOptionPane.showMessageDialog(null, "You sway in place, weakness flooding your limbs.\n" +
-                "The room begins to blur and darken. As your life force fades, you think only of who may be\n" +
-                " the one to stop the Bot Lord. Your hope for the next is the last thing to leave you."
-                , "We'll never forget you...whatever your name was. Hey, go fire up the next one!"
-                , JOptionPane.ERROR_MESSAGE);
-
-        JOptionPane.showMessageDialog(null, "GAME OVER!", "Buh-bye."
-                , JOptionPane.ERROR_MESSAGE);
-        System.exit(0);
+        JOptionPane.showMessageDialog(null,"Battle Start", "Go get'em!"
+                , JOptionPane.INFORMATION_MESSAGE);
     }
 
     // Battle Win
@@ -183,6 +176,42 @@ public class Cutscene
     {
         JOptionPane.showMessageDialog(null,"You are victorious!", "We knew you could do it."
                 , JOptionPane.PLAIN_MESSAGE);
+    }
+
+    // Game Over
+    public static void gameOver()
+    {
+        JOptionPane.showMessageDialog(null, "You sway in place, weakness flooding your limbs.\n" +
+                        "The room begins to blur and darken. As your life force fades, you think only of who may be\n" +
+                        " the one to stop the Bot Lord. Your hope for the next hero is the last thing to leave you."
+                , "We'll never forget you...whatever your name was. Hey, go fire up the next one!"
+                , JOptionPane.ERROR_MESSAGE);
+
+        JOptionPane.showMessageDialog(null, "GAME OVER!", "Buh-bye."
+                , JOptionPane.ERROR_MESSAGE);
+        try
+        {
+            File roguelike = new File("Nexthero.txt");
+            FileWriter fwriter = new FileWriter(roguelike, true);
+            PrintWriter outputFile = new PrintWriter(fwriter);
+            outputFile.println(name + " has fallen. Another will rise.");
+            outputFile.close();
+            JOptionPane.showMessageDialog(null, "Another will come.");
+
+        }
+        catch(IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        System.exit(0);
+    }
+
+    // FORGE YOUR DESTINY
+    public static void enterCastle()
+    {
+        JOptionPane.showMessageDialog(null, "\nYou steel yourself and push forward through" +
+                        " the door of the castle. You resolve that the Bot Lord will see his end this day."
+                , "Huzzah!", JOptionPane.PLAIN_MESSAGE);
     }
 
     // Leave Option
@@ -196,9 +225,49 @@ public class Cutscene
         System.exit(0);
     }
 
-    public static void battleStart()
+    // Fight an enemy
+    public static void fightEnemy()
     {
-        JOptionPane.showMessageDialog(null,"Battle Start", "Go get'em!"
-                , JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
+                , JOptionPane.PLAIN_MESSAGE);
+    }
+
+    // Find consumable event
+    public static void findConsumable()
+    {
+        JOptionPane.showMessageDialog(null,"After a brief search through the room\n" +
+                "you turn over some broken furniture and find an item!", "It's shiny!", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static void cutsceneDoormanMinion()
+    {
+        JOptionPane.showMessageDialog(null, "As you approch your destination, you see a robot wearing a little hat that moves toward you with the speed of lightning.\nIs that a bell boy bot?"
+                , "The Doorman's Minion", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static void cutsceneChefMinion()
+    {
+        JOptionPane.showMessageDialog(null, "While you are in the kitchen, another bot challenges you to a battle\nIt has a smaller hat than the Head Chef, and you can\nsee it reads 'Sous Chef'" + 
+                                      "It is shorter than the Head Chef and looks as though it got into some mess."
+                , "The Head Chef's Minion", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static void cutsceneOfficeMinion()
+    {
+        JOptionPane.showMessageDialog(null, "As you look around, another minion spots you and looks as though it wants to challenge you, but it is moving slowly\n as if it's been overworked." + 
+                                      "It looks tired, if a robot can look such a way. It holds a stack of messily organized papers."
+                , "The Office Manager's Minion", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static void cutsceneFilezillaMinion()
+    {
+        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+                , "Filezilla's Minion", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    public static void cutsceneServerusMinion()
+    {
+        JOptionPane.showMessageDialog(null, "As yet another minion challenges you, you can tell this one might be the strongest you've faced.\nIt looks as if it has limitless energy and it carries an extension cord that is frayed at one end."
+                , "Serverus' Minion", JOptionPane.PLAIN_MESSAGE);
     }
 }
