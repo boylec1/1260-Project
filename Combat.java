@@ -4,14 +4,8 @@ import java.util.*;
 public class Combat {
 
     // Fields
-    private int playerHealth = 10;
-    private int enemyHealth = 10;
-    private int turnCount = 1;
-
-    private int attackInput;
-    private int defenseInput;
-    private String attackAttribute;
-    private String defenseAttribute;
+    private int playerHealth;
+    private int enemyHealth;
 
     private Object[] options = {"What have I got?", "Nah, let's get this over with."};
 
@@ -37,130 +31,252 @@ public class Combat {
         do {
             // Turn counter
             System.out.println("\n==============");
-            System.out.println("|   Turn " + this.turnCount + "   |");
+            int turnCount = 1;
+            System.out.println("|   Turn " + turnCount + "   |");
             System.out.println("==============");
 
-            // insert options here
-            // consumable
-
-            consumable.consumableMenu(playerDeck, enemyDeck, enemyHP, playerHP, consumable);
+            // consumable options
 
             ArrayList<String> arrayList = consumable.consumablePack;
 
             Object[] option = new Object[arrayList.size()];
             arrayList.toArray(option);
 
-            int result = JOptionPane.showOptionDialog(null, "Would You like to use an item?",
-                    "Query", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
-                    null, options, null);
-            if(result == JOptionPane.YES_OPTION)
+            if(option.length != 0)
             {
-                if(option.length == 0)
-                {
-                    JOptionPane.showMessageDialog(null, "You have no items!", "Sadness..."
-                            , JOptionPane.INFORMATION_MESSAGE);
+                int result = JOptionPane.showOptionDialog(null, "Would You like to use an item?",
+                        "Query", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE,
+                        null, options, null);
+                if(option.length > 3) {
+                    if (result == JOptionPane.YES_OPTION) {
+                        String results = (String) JOptionPane.showInputDialog(null, "Please choose an item", "~Backpack~Backpack~",
+                                JOptionPane.QUESTION_MESSAGE, null, option, option[0]);
+
+                        switch (results) {
+                            case "Battery Pack" -> {
+                                JOptionPane.showMessageDialog(null, "The battery pack once fully charged" +
+                                                ", dims with a fading light as the energy flows within you.",
+                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "You've restored 10 HP!",
+                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                playerHealth += 10;
+                                setNewPlayerHealth();
+                                consumable.removeConsumableBattery();
+                            }
+                            case "CPU Upgrade" -> {
+                                JOptionPane.showMessageDialog(null, "You use the CPU Upgrade... \n" +
+                                                "It definitely did something!! Probably...",
+                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                JOptionPane.showMessageDialog(null, ";)",
+                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                consumable.removeConsumableCPU();
+                            }
+                            case "Hammer" -> {
+                                JOptionPane.showMessageDialog(null, "You firmly grip your trusty hammer" +
+                                                " with both hands and S M A S H your enemy to pieces!",
+                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "Well, not actually, but you do " +
+                                                "inflict 10 damage...",
+                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                enemyHealth -= 10;
+                                consumable.removeConsumableHammer();
+                            }
+                            case "Cookie" -> {
+                                JOptionPane.showMessageDialog(null, "The cookie asks you to " +
+                                                "lend it some money. \nYou know it's a bad idea given its gambling addition, but you \"enable\" it anyways.",
+                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "The cookie, in its excitement, decides to let you have a little bite." +
+                                                " \nYou take a nibble and feel your health increase as the cookie runs away... +5 HP",
+                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                playerHealth += 5;
+                                setNewPlayerHealth();
+                                consumable.removeConsumableCookie();
+                            }
+                            case "Java" -> {
+                                JOptionPane.showMessageDialog(null, "You look at the cup of " +
+                                                "coffee in your hand. \nYou almost decide to take a sip, but hesitate at the bad idea.",
+                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                JOptionPane.showMessageDialog(null, "You chuck it at the enemy instead, " +
+                                                "and the steaming drink \nseeps into their inner mechanisms lowering their health by 5.",
+                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                enemyHealth -= 5;
+                                consumable.removeConsumableJavaCoffee();
+                            }
+                        }
+                    }
                 }
                 else
                 {
-                    int results = JOptionPane.showOptionDialog(null, "", "~Backpack~Backpack~",
-                            JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, option, null);
+                    if(result == JOptionPane.YES_OPTION) {
+                        int results = JOptionPane.showOptionDialog(null, "Please choose an item", "~Backpack~Backpack~",
+                                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, option, null);
 
-                    if(results == JOptionPane.YES_OPTION)
-                    {
-                        JOptionPane.showMessageDialog(null,"You use the item!",
-                                "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                        switch (consumable.consumablePack.get(0).trim()) {
-                            case "Battery Pack" -> {
-                                JOptionPane.showMessageDialog(null, "The battery pack once fully charged" +
-                                                ", dims with a fading light as the energy flows within you.",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                JOptionPane.showMessageDialog(null, "You've restored 10 HP!",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                playerHealth += 10;
-                                setNewPlayerHealth();
-                                consumable.removeConsumableBattery();
-                            }
-                            case "CPU Upgrade" -> {
-                                JOptionPane.showMessageDialog(null, "You use the CPU Upgrade... " +
-                                                "Whatever that means.",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                consumable.removeConsumableCPU();
-                            }
-                            case "Hammer" -> {
-                                JOptionPane.showMessageDialog(null, "You firmly grip your trusty hammer" +
-                                                " with both hands and S M A S H your enemy to pieces!",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                JOptionPane.showMessageDialog(null, "Well, not actually, but you do " +
-                                                "inflict 10 damage...",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                enemyHealth -= 10;
-                                consumable.removeConsumableHammer();
-                            }
-                        }
-                    }
-                    else if(results == JOptionPane.NO_OPTION)
-                    {
-                        JOptionPane.showMessageDialog(null,"You use the item!",
-                                "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                        switch (consumable.consumablePack.get(1).trim()) {
-                            case "Battery Pack" -> {
-                                JOptionPane.showMessageDialog(null, "The battery pack once fully charged" +
-                                                ", dims with a fading light as the energy flows within you.",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                JOptionPane.showMessageDialog(null, "You've restored 10 HP!",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                playerHealth += 10;
-                                setNewPlayerHealth();
-                                consumable.removeConsumableBattery();
-                            }
-                            case "CPU Upgrade" -> {
-                                JOptionPane.showMessageDialog(null, "You use the CPU Upgrade... " +
-                                                "Whatever that means.",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                consumable.removeConsumableCPU();
-                            }
-                            case "Hammer" -> {
-                                JOptionPane.showMessageDialog(null, "You firmly grip your trusty hammer" +
-                                                " with both hands and S M A S H your enemy to pieces!",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                JOptionPane.showMessageDialog(null, "Well, not actually, but you do " +
-                                                "inflict 10 damage...",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                enemyHealth -= 10;
-                                consumable.removeConsumableHammer();
+                        if (results == JOptionPane.YES_OPTION) {
+                            JOptionPane.showMessageDialog(null, "You use the item!",
+                                    "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+
+                            switch (consumable.consumablePack.get(0).trim()) {
+                                case "Battery Pack" -> {
+                                    JOptionPane.showMessageDialog(null, "The battery pack once fully charged" +
+                                                    ", dims with a fading light as the energy flows within you.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "You've restored 10 HP!",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    playerHealth += 10;
+                                    setNewPlayerHealth();
+                                    consumable.removeConsumableBattery();
+                                }
+                                case "CPU Upgrade" -> {
+                                    JOptionPane.showMessageDialog(null, "You use the CPU Upgrade... \n" +
+                                                    "It definitely did something!! Probably...",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, ";)",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    consumable.removeConsumableCPU();
+                                }
+                                case "Hammer" -> {
+                                    JOptionPane.showMessageDialog(null, "You firmly grip your trusty hammer" +
+                                                    " with both hands and S M A S H your enemy to pieces!",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "Well, not actually, but you do " +
+                                                    "inflict 10 damage...",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    enemyHealth -= 10;
+                                    consumable.removeConsumableHammer();
+                                }
+                                case "Cookie" -> {
+                                    JOptionPane.showMessageDialog(null, "The cookie asks you to " +
+                                                    "lend it some money. \nYou know it's a bad idea given its gambling addition, but you \"enable\" it anyways.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "The cookie, in its excitement, decides to let you have a little bite." +
+                                                    " \nYou take a nibble and feel your health increase as the cookie runs away... +5 HP",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    playerHealth += 5;
+                                    setNewPlayerHealth();
+                                    consumable.removeConsumableCookie();
+                                }
+                                case "Java" -> {
+                                    JOptionPane.showMessageDialog(null, "You look at the cup of " +
+                                                    "coffee in your hand. \nYou almost decide to take a sip, but hesitate at the bad idea.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "You chuck it at the enemy instead, " +
+                                                    "and the steaming drink \nseeps into their inner mechanisms lowering their health by 5.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    enemyHealth -= 5;
+                                    consumable.removeConsumableJavaCoffee();
+                                }
                             }
                         }
-                    }
-                    else if(results == JOptionPane.CANCEL_OPTION)
-                    {
-                        JOptionPane.showMessageDialog(null,"You use the item!",
-                                "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                        switch (consumable.consumablePack.get(3).trim()) {
-                            case "Battery Pack" -> {
-                                JOptionPane.showMessageDialog(null, "The battery pack once fully charged" +
-                                                ", dims with a fading light as the energy flows within you.",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                JOptionPane.showMessageDialog(null, "You've restored 10 HP!",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                playerHealth += 10;
-                                setNewPlayerHealth();
-                                consumable.removeConsumableBattery();
+                        else if(results == JOptionPane.NO_OPTION) {
+                            JOptionPane.showMessageDialog(null,"You use the item!",
+                                    "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+
+                            switch (consumable.consumablePack.get(1).trim()) {
+                                case "Battery Pack" -> {
+                                    JOptionPane.showMessageDialog(null, "The battery pack once fully charged" +
+                                                    ", dims with a fading light as the energy flows within you.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "You've restored 10 HP!",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    playerHealth += 10;
+                                    setNewPlayerHealth();
+                                    consumable.removeConsumableBattery();
+                                }
+                                case "CPU Upgrade" -> {
+                                    JOptionPane.showMessageDialog(null, "You use the CPU Upgrade... \n" +
+                                                    "It definitely did something!! Probably...",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, ";)",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    consumable.removeConsumableCPU();
+                                }
+                                case "Hammer" -> {
+                                    JOptionPane.showMessageDialog(null, "You firmly grip your trusty hammer" +
+                                                    " with both hands and S M A S H your enemy to pieces!",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "Well, not actually, but you do " +
+                                                    "inflict 10 damage...",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    enemyHealth -= 10;
+                                    consumable.removeConsumableHammer();
+                                }
+                                case "Cookie" -> {
+                                    JOptionPane.showMessageDialog(null, "The cookie asks you to " +
+                                                    "lend it some money. \nYou know it's a bad idea given its gambling addition, but you \"enable\" it anyways.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "The cookie, in its excitement, decides to let you have a little bite." +
+                                                    " \nYou take a nibble and feel your health increase as the cookie runs away... +5 HP",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    playerHealth += 5;
+                                    setNewPlayerHealth();
+                                    consumable.removeConsumableCookie();
+                                }
+                                case "Java" -> {
+                                    JOptionPane.showMessageDialog(null, "You look at the cup of " +
+                                                    "coffee in your hand. \nYou almost decide to take a sip, but hesitate at the bad idea.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "You chuck it at the enemy instead, " +
+                                                    "and the steaming drink \nseeps into their inner mechanisms lowering their health by 5.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    enemyHealth -= 5;
+                                    consumable.removeConsumableJavaCoffee();
+                                }
                             }
-                            case "CPU Upgrade" -> {
-                                JOptionPane.showMessageDialog(null, "You use the CPU Upgrade... " +
-                                                "Whatever that means.",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                consumable.removeConsumableCPU();
-                            }
-                            case "Hammer" -> {
-                                JOptionPane.showMessageDialog(null, "You firmly grip your trusty hammer" +
-                                                " with both hands and S M A S H your enemy to pieces!",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                JOptionPane.showMessageDialog(null, "Well, not actually, but you do " +
-                                                "inflict 10 damage...",
-                                        "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
-                                enemyHealth -= 10;
-                                consumable.removeConsumableHammer();
+                        }
+                        else if(results == JOptionPane.CANCEL_OPTION) {
+                            JOptionPane.showMessageDialog(null, "You use the item!",
+                                    "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+
+                            switch (consumable.consumablePack.get(2).trim()) {
+                                case "Battery Pack" -> {
+                                    JOptionPane.showMessageDialog(null, "The battery pack once fully charged" +
+                                                    ", dims with a fading light as the energy flows within you.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "You've restored 10 HP!",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    playerHealth += 10;
+                                    setNewPlayerHealth();
+                                    consumable.removeConsumableBattery();
+                                }
+                                case "CPU Upgrade" -> {
+                                    JOptionPane.showMessageDialog(null, "You use the CPU Upgrade... \n" +
+                                                    "It definitely did something!! Probably...",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, ";)",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    consumable.removeConsumableCPU();
+                                }
+                                case "Hammer" -> {
+                                    JOptionPane.showMessageDialog(null, "You firmly grip your trusty hammer" +
+                                                    " with both hands and S M A S H your enemy to pieces!",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "Well, not actually, but you do " +
+                                                    "inflict 10 damage...",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    enemyHealth -= 10;
+                                    consumable.removeConsumableHammer();
+                                }
+                                case "Cookie" -> {
+                                    JOptionPane.showMessageDialog(null, "The cookie asks you to " +
+                                                    "lend it some money. \nYou know it's a bad idea given its gambling addition, but you \"enable\" it anyways.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "The cookie, in its excitement, decides to let you have a little bite." +
+                                                    " \nYou take a nibble and feel your health increase as the cookie runs away... +5 HP",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    playerHealth += 5;
+                                    setNewPlayerHealth();
+                                    consumable.removeConsumableCookie();
+                                }
+                                case "Java" -> {
+                                    JOptionPane.showMessageDialog(null, "You look at the cup of " +
+                                                    "coffee in your hand. \nYou almost decide to take a sip, but hesitate at the bad idea.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, "You chuck it at the enemy instead, " +
+                                                    "and the steaming drink \nseeps into their inner mechanisms lowering their health by 5.",
+                                            "~Backpack~Backpack~", JOptionPane.INFORMATION_MESSAGE);
+                                    enemyHealth -= 5;
+                                    consumable.removeConsumableJavaCoffee();
+                                }
                             }
                         }
                     }
@@ -168,7 +284,7 @@ public class Combat {
             }
 
             // deals top card of each deck
-            JOptionPane.showMessageDialog(null, "Deal!", "Turn " + this.turnCount
+            JOptionPane.showMessageDialog(null, "Deal!", "Turn " + turnCount
                     , JOptionPane.INFORMATION_MESSAGE);
 
             System.out.println("\nDeal!\n");
@@ -257,11 +373,11 @@ public class Combat {
             playerHealth -= enemyDamage;
 
             JOptionPane.showMessageDialog(null, "You took " + enemyDamage + " damage!\n" +
-                    "The enemy took " + playerDamage + " damage!\n", "Turn " + this.turnCount
+                    "The enemy took " + playerDamage + " damage!\n", "Turn " + turnCount
                     , JOptionPane.INFORMATION_MESSAGE);
 
             // display current health
-            JOptionPane.showMessageDialog(null, currentHealth(), "Turn " + this.turnCount
+            JOptionPane.showMessageDialog(null, currentHealth(), "Turn " + turnCount
                     , JOptionPane.INFORMATION_MESSAGE);
 
             if (enemyHealth <= 0 || playerHealth <= 0)
@@ -269,7 +385,7 @@ public class Combat {
                 winCondition = true;
             }
 
-            this.turnCount++;
+            turnCount++;
 
         }
         while (!winCondition);
