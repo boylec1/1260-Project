@@ -5,7 +5,8 @@ public class Combat {
 
     // Fields
     private int playerHealth;
-    private int enemyHealth;
+    private int enemyHealth;    
+    private int turnCount = 1;
 
     private Object[] options = {"What have I got?", "Nah, let's get this over with."};
 
@@ -31,7 +32,6 @@ public class Combat {
         do {
             // Turn counter
             System.out.println("\n==============");
-            int turnCount = 1;
             System.out.println("|   Turn " + turnCount + "   |");
             System.out.println("==============");
 
