@@ -373,7 +373,7 @@ public class Combat {
             playerHealth -= enemyDamage;
 
             JOptionPane.showMessageDialog(null, "You took " + enemyDamage + " damage!\n" +
-                    "The enemy took " + playerDamage + " damage!\n", "Turn " + turnCount
+                            "The enemy took " + playerDamage + " damage!\n", "Turn " + turnCount
                     , JOptionPane.INFORMATION_MESSAGE);
 
             // display current health

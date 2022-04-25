@@ -20,8 +20,8 @@ public class EnemyCard extends Card{
     {
         Random generator = new Random();
 
-        this.enemyCardAttack = (generator.nextInt(8) + 3); // + the IO reader line count
-        this.enemyCardDefense = (generator.nextInt(8) + 3); // + the IO reader line count
+        this.enemyCardAttack = (generator.nextInt(6) + 1); // + the IO reader line count
+        this.enemyCardDefense = (generator.nextInt(6) + 1); // + the IO reader line count
         this.enemyCardAttribute = randomEnemyAttribute(generator.nextInt(5)+1);
         this.enemyCardName = randomEnemyName();
     }

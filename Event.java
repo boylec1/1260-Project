@@ -1,6 +1,7 @@
 import javax.swing.*;
-import java.util.ArrayList;
 import java.util.Random;
+import java.util.ArrayList;
+
 public class Event
 {
 
@@ -23,70 +24,69 @@ public class Event
 
             int randomConsumable= rand.nextInt(5)+1;
 
-                switch(randomConsumable){
-                    case 1:
-                        JOptionPane.showMessageDialog(null,"It seems to be a hammer!"
-                                , "Ooooh what's that?", JOptionPane.WARNING_MESSAGE);
-                            JOptionPane.showMessageDialog(null,"You put it in your backpack and continue on."
-                                    , "Score!", JOptionPane.WARNING_MESSAGE);
-                            consumable.addConsumableHammer();
-                        break;
-                    case 2:
-                        JOptionPane.showMessageDialog(null,"It seems to be a battery pack!"
-                                , "Ooooh what's that?", JOptionPane.WARNING_MESSAGE);
-                            JOptionPane.showMessageDialog(null,"You put it in your backpack and continue on."
-                                    , "Score!", JOptionPane.WARNING_MESSAGE);
-                            consumable.addConsumableBattery();
-                        break;
-                    case 3:
-                        JOptionPane.showMessageDialog(null,"It seems to be an upgrade!"
-                                , "Ooooh what's that?", JOptionPane.WARNING_MESSAGE);
-                            JOptionPane.showMessageDialog(null,"You put it in your backpack and continue on."
-                                    , "Score!", JOptionPane.WARNING_MESSAGE);
-                            consumable.addConsumableCPU();
-                        break;
-                    case 4:
-                        JOptionPane.showMessageDialog(null,"It seems to be a cookie!"
-                                , "Ooooh what's that?", JOptionPane.WARNING_MESSAGE);
-                        JOptionPane.showMessageDialog(null,"You put it in your backpack and continue on."
-                                , "Score!", JOptionPane.WARNING_MESSAGE);
-                        consumable.addConsumableCookie();
-                        break;
-                    case 5:
-                        JOptionPane.showMessageDialog(null,"It seems to be a cup of Java!"
-                                , "Ooooh what's that?", JOptionPane.WARNING_MESSAGE);
-                        JOptionPane.showMessageDialog(null,"You put it in your backpack and continue on."
-                                , "Score!", JOptionPane.WARNING_MESSAGE);
-                        consumable.addConsumableJavaCoffee();
-                        break;
+            switch(randomConsumable){
+                case 1:
+                    JOptionPane.showMessageDialog(null,"It seems to be a hammer!"
+                            , "Ooooh what's that?", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"You put it in your backpack and continue on."
+                            , "Score!", JOptionPane.WARNING_MESSAGE);
+                    consumable.addConsumableHammer();
+                    break;
+                case 2:
+                    JOptionPane.showMessageDialog(null,"It seems to be a battery pack!"
+                            , "Ooooh what's that?", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"You put it in your backpack and continue on."
+                            , "Score!", JOptionPane.WARNING_MESSAGE);
+                    consumable.addConsumableBattery();
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(null,"It seems to be an upgrade!"
+                            , "Ooooh what's that?", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"You put it in your backpack and continue on."
+                            , "Score!", JOptionPane.WARNING_MESSAGE);
+                    consumable.addConsumableCPU();
+                    break;
+                case 4:
+                    JOptionPane.showMessageDialog(null,"It seems to be a cookie!"
+                            , "Ooooh what's that?", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"You put it in your backpack and continue on."
+                            , "Score!", JOptionPane.WARNING_MESSAGE);
+                    consumable.addConsumableCookie();
+                    break;
+                case 5:
+                    JOptionPane.showMessageDialog(null,"It seems to be a cup of Java!"
+                            , "Ooooh what's that?", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"You put it in your backpack and continue on."
+                            , "Score!", JOptionPane.WARNING_MESSAGE);
+                    consumable.addConsumableJavaCoffee();
+                    break;
             }
 
         }
         else
         {
             int randomMinion= rand.nextInt(5)+1;
-            Cutscene cutscene = new Cutscene();
             Enemy enemy = new Enemy();
             switch (randomMinion)
             {
                 case 1:
-                    cutscene.cutsceneDoormanMinion();
+                    Cutscene.cutsceneDoormanMinion();
                     enemy.doormanMinion(playerDeck, playerHealth,consumable);
                     break;
                 case 2:
-                    cutscene.cutsceneChefMinion();
+                    Cutscene.cutsceneChefMinion();
                     enemy.chefMinion(playerDeck, playerHealth,consumable);
                     break;
                 case 3:
-                    cutscene.cutsceneOfficeMinion();
+                    Cutscene.cutsceneOfficeMinion();
                     enemy.officeMinion(playerDeck, playerHealth,consumable);
                     break;
                 case 4:
-                    cutscene.cutsceneFilezillaMinion();
+                    Cutscene.cutsceneFilezillaMinion();
                     enemy.filezillaMinion(playerDeck, playerHealth,consumable);
                     break;
                 case 5:
-                    cutscene.cutsceneServerusMinion();
+                    Cutscene.cutsceneServerusMinion();
                     enemy.serverusMinion(playerDeck, playerHealth,consumable);
                     break;
             }

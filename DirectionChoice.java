@@ -1,9 +1,7 @@
-import java.util.*;
 import javax.swing.*;
 
 public class DirectionChoice
 {
-    Cutscene cutscenes = new Cutscene();//can use cutscenes describing decision
     private Object[] options1 = { "Enter", "Leave"};
     private Object[] options2 = { "Left", "Right"};
     private Object[] options3 = { "Look Around", "Up the Stairs" };
@@ -25,7 +23,7 @@ public class DirectionChoice
             Cutscene.enterCastle();
             Enemy enemy = new Enemy();
             enemy.boss1(playerDeck, playerHealth, consumable);
-            cutscenes.cutscene2();
+            Cutscene.cutscene2();
         }
         else
         {
@@ -49,7 +47,7 @@ public class DirectionChoice
             Event event1 = new Event(playerDeck, playerHealth,consumable);
 
             // Boss Battle
-            cutscenes.cutscene3();
+            Cutscene.cutscene3();
 
             Enemy enemy = new Enemy(); //You fight kitchen boss anyway but at least you got an item first
             enemy.boss2(playerDeck, playerHealth, consumable); //kitchen boss
@@ -78,13 +76,15 @@ public class DirectionChoice
             // Event
             Event event2 = new Event(playerDeck, playerHealth,consumable);
             // Boss Battle
-            cutscenes.cutscene4();
+            Cutscene.cutscene4();
             Enemy enemy = new Enemy();
             enemy.boss3(playerDeck, playerHealth, consumable);
         }
         else
         {
             // Boss Battle
+            JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
+                    , JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
             enemy.boss3(playerDeck, playerHealth, consumable);
         }
@@ -104,7 +104,7 @@ public class DirectionChoice
             Event event3 = new Event(playerDeck, playerHealth,consumable);
 
             // Boss Battle
-            cutscenes.cutscene5();
+            Cutscene.cutscene5();
             Enemy enemy = new Enemy();
             enemy.boss4(playerDeck, playerHealth, consumable);
         }
@@ -136,7 +136,7 @@ public class DirectionChoice
                     "from before.", "Back on track!", JOptionPane.PLAIN_MESSAGE);
 
             // Boss Battle
-            cutscenes.cutscene6();
+            Cutscene.cutscene6();
             Enemy enemy = new Enemy();
             enemy.boss5(playerDeck, playerHealth, consumable);
         }
@@ -147,7 +147,7 @@ public class DirectionChoice
             // Boss Battle
             JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
                     , JOptionPane.PLAIN_MESSAGE);
-            cutscenes.cutscene6();
+            Cutscene.cutscene6();
             Enemy enemy = new Enemy();
             enemy.boss5(playerDeck, playerHealth, consumable);
         }
@@ -156,7 +156,7 @@ public class DirectionChoice
             // Boss Battle
             JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
                     , JOptionPane.PLAIN_MESSAGE);
-            cutscenes.cutscene6();
+            Cutscene.cutscene6();
             Enemy enemy = new Enemy();
             enemy.boss5(playerDeck, playerHealth, consumable);
         }
@@ -175,10 +175,10 @@ public class DirectionChoice
             // Final Boss Battle
             JOptionPane.showMessageDialog(null, "Final Boss Fight", "It's the boss!"
                     , JOptionPane.PLAIN_MESSAGE);
-            cutscenes.cutscene7();
+            Cutscene.cutscene7();
             Enemy enemy = new Enemy();
             enemy.finalBoss(playerDeck, playerHealth, consumable);
-            cutscenes.cutsceneEnd();
+            Cutscene.cutsceneEnd();
         }
         else
         {

@@ -1,5 +1,7 @@
 public class EnemyStats extends PlayerStats{
 
+    private int health;
+
     public EnemyStats()
     {
         // Base health
@@ -40,5 +42,10 @@ public class EnemyStats extends PlayerStats{
     {
         this.health = 15;
         return this.health;
+    }
+
+    @Override
+    public int getHealth() {
+        return health;
     }
 }

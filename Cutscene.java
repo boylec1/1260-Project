@@ -1,4 +1,3 @@
-import java.io.*;
 import javax.swing.*;
 
 public class Cutscene
@@ -6,14 +5,14 @@ public class Cutscene
     static String name;
 
     // Intro cutscene describing the setting and the goal of the player as well as the exterior of the castle
-    public void cutscene1()
+    public static void cutscene1()
     {
-        JOptionPane.showMessageDialog(null,"\n" +
-                "It is the year 3000— a time where there is no blue in the sky or green on the ground. \n"+
-                "A time where the Earth is no longer suitable for living creatures.\n" +
-                "All that remains in this world is a society of sentient machines ruled by the iron grip of the Bot " +
-                "Lord.\n No one has ever seen the Bot Lord, but all have seen his evil army that constantly " +
-                "suppress the good bots of this world.", "Really a bummer...", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,"It is the year 3000— a time where there is no blue" +
+                " in the sky or green on the ground.\n A time where the Earth is no longer suitable for living " +
+                "creatures.\n All that remains in this world is a society of sentient machines ruled by the iron " +
+                "grip of the Bot Lord.\n No one has ever seen the Bot Lord, but all have seen his evil army that " +
+                "constantly suppress the good bots of this world.", "Really a bummer..."
+                , JOptionPane.INFORMATION_MESSAGE);
         JOptionPane.showMessageDialog(null, "You awake from the pitch black of a deep slumber " +
                 "to a flash of light.\n A loading screen appears in your vision", "Real-time UI overlay!"
                 , JOptionPane.INFORMATION_MESSAGE);
@@ -22,21 +21,20 @@ public class Cutscene
                 , JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public void enterName()
+    public static void enterName()
     {
-        this.name = JOptionPane.showInputDialog("Enter your name to access your mission.");
+        name = JOptionPane.showInputDialog("Enter your name to access your mission.");
 
-        JOptionPane.showMessageDialog(null, "Good morning, "+ this.name +".\n"+
+        JOptionPane.showMessageDialog(null, "Good morning, "+ name +".\n"+
                 "You have been created to be the savior of all bots.\n" +
                 "Your mission is to defeat the Bot Lord.\n" +
-                "You will find him in the top level of his castle\n", "Nice to meet you, " + this.name + "!"
+                "You will find him in the top level of his castle\n", "Nice to meet you, " + name + "!"
                 , JOptionPane.INFORMATION_MESSAGE);
-
         JOptionPane.showMessageDialog(null,"The loading screen dissolves, and a scene morphs " +
                 "from the darkness.", "Good luck!", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public void getBackpack(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
+    public static void getBackpack(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         JOptionPane.showMessageDialog(null,"\n" +
                 "One last thing before you go!\n", "Wait, " +
@@ -55,8 +53,9 @@ public class Cutscene
                 "Good Luck, hero!", "We believe in you!", JOptionPane.INFORMATION_MESSAGE);
 
     }
+
     // Describing the castle interior after defeating the first boss
-    public void cutscene2()
+    public static void cutscene2()
     {
         JOptionPane.showMessageDialog(null,"\n" +
                 "Having defeated the foe blocking your path, you journey forth.\n" +
@@ -65,7 +64,7 @@ public class Cutscene
     }
 
     // Describes entering the kitchen as well as intro to the kitchen boss
-    public void cutscene3()
+    public static void cutscene3()
     {
         JOptionPane.showMessageDialog(null, "\n" +
                 "As you near the door at the end of the hall, you begin to smell the scent of fresh-baked cookies  \n" +
@@ -75,7 +74,7 @@ public class Cutscene
     }
 
     // Describes the office as well as the office boss
-    public void cutscene4()
+    public static void cutscene4()
     {
         JOptionPane.showMessageDialog(null, "The door creaks open to a scene of utter despair:" +
                 " a clean, well-lit office space.\n You see row upon ordered-row of small desks made of faux wood," +
@@ -85,7 +84,7 @@ public class Cutscene
     }
 
     // Description of going upstairs and hallway
-    public void cutscene5()
+    public static void cutscene5()
     {
         JOptionPane.showMessageDialog(null,"\n" +
                 "After defeating the infamous Will, the computers suddenly started splitting apart.\n" +
@@ -97,7 +96,7 @@ public class Cutscene
     }
 
     // Description of hallway leading to "Serverus" boss
-    public void cutscene6()
+    public static void cutscene6()
     {
         JOptionPane.showMessageDialog(null, "You continue your trek down the dark and eerie" +
                 " hallway.\n You know that evil awaits as you slowly close in on the lair of Serverus.\n" +
@@ -106,7 +105,7 @@ public class Cutscene
     }
 
     // Description of final boss room and final boss
-    public void cutscene7()
+    public static void cutscene7()
     {
         JOptionPane.showMessageDialog(null, "As you continue past, your steps become heavy. " +
                 "Your shoes feel as if they were made of lead.\n After pausing to consider, you realize there is no magic or " +
@@ -168,7 +167,7 @@ public class Cutscene
     }
 
     // Going left three times in hallway leads to consumable event
-    public void specialCutscene1()
+    public static void specialCutscene1()
     {
         JOptionPane.showMessageDialog(null, "In going left exactly three times, you start " +
                 "feeling very lucky. You find an item!!"
@@ -176,7 +175,7 @@ public class Cutscene
     }
 
     // End cutscene, "you've defeated the boss and saved the world yayy!!"
-    public void cutsceneEnd()
+    public static void cutsceneEnd()
     {
         JOptionPane.showMessageDialog(null, "As the dust clears away, you see that you have " +
                 "defeated the boss.\n You feel a sense of accomplishment wash over you as you know your journey " +
@@ -209,20 +208,7 @@ public class Cutscene
 
         JOptionPane.showMessageDialog(null, "GAME OVER!", "Buh-bye."
                 , JOptionPane.ERROR_MESSAGE);
-        try
-        {
-            File roguelike = new File("Nexthero.txt");
-            FileWriter fwriter = new FileWriter(roguelike, true);
-            PrintWriter outputFile = new PrintWriter(fwriter);
-            outputFile.println(name + " has fallen. Another will rise.");
-            outputFile.close();
-            JOptionPane.showMessageDialog(null, "Another will come.");
 
-        }
-        catch(IOException e)
-        {
-            System.out.println(e.getMessage());
-        }
         System.exit(0);
     }
 

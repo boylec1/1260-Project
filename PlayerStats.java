@@ -1,7 +1,7 @@
 public class PlayerStats {
 
     // Field
-    int health;
+    private int health;
 
     public PlayerStats()
     {
