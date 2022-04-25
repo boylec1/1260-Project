@@ -1,3 +1,4 @@
+import java.io.*;
 import javax.swing.*;
 
 public class Cutscene
@@ -208,7 +209,20 @@ public class Cutscene
 
         JOptionPane.showMessageDialog(null, "GAME OVER!", "Buh-bye."
                 , JOptionPane.ERROR_MESSAGE);
+        try
+        {
+            File roguelike = new File("Nexthero.txt");
+            FileWriter fwriter = new FileWriter(roguelike, true);
+            PrintWriter outputFile = new PrintWriter(fwriter);
+            outputFile.println(name + " has fallen. Another will rise.");
+            outputFile.close();
+            JOptionPane.showMessageDialog(null, "Another will come.");
 
+        }
+        catch(IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
         System.exit(0);
     }
 

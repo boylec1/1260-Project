@@ -1,9 +1,13 @@
+import java.util.ArrayList;
 import java.util.Random;
+import java.io.*;
+import java.util.Scanner;
 
 public class Card
 {
     private int cardAttack;
     private int cardDefense;
+    private int fallenHeroes = 0;
     private String cardAttribute;
     private String cardName;
 
@@ -18,11 +22,29 @@ public class Card
     public Card()
     {
         Random generator = new Random();
+        try
+        {
+            File readFile = new File("Nexthero.txt");
+            if(readFile.exists()) {
+                Scanner inputFile = new Scanner(readFile);
+                ArrayList<String> attempts = new ArrayList<>();
 
-        this.cardAttack = (generator.nextInt(5) + 1);
-        this.cardDefense = (generator.nextInt(5) + 1);
-        this.cardAttribute = randomAttribute(generator.nextInt(5)+1);
-        this.cardName = randomName();
+                while (inputFile.hasNext()) {
+                    attempts.add(inputFile.nextLine());
+                }
+                this.fallenHeroes = attempts.size();
+            }
+
+            this.cardAttack = (generator.nextInt(5) + 1) + fallenHeroes; // + the IO reader line count
+            this.cardDefense = (generator.nextInt(5) + 1) + fallenHeroes; // + the IO reader line count
+            this.cardAttribute = randomAttribute(generator.nextInt(5)+1);
+            this.cardName = randomName();
+
+        }
+        catch(IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
     public String randomAttribute(int thePick)
@@ -111,6 +133,10 @@ public class Card
     public void setCardAttack(int attackValue)
     {
         this.cardAttack += attackValue;
+    }
+
+    public int getFallenHeroes() {
+        return fallenHeroes;
     }
 
     public String toString()
