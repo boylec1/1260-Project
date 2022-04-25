@@ -176,7 +176,7 @@ public class Combat {
             System.out.print("Your card:\n");
             Card topCard = playerDeck.getTopCard();
             System.out.print("Enemy card:\n");
-            Card enemyTopCard = enemyDeck.getTopCard();
+            EnemyCard enemyTopCard = enemyDeck.getTopCard();
 
             // win condition if no more cards
             if (topCard == null || enemyTopCard == null)
@@ -199,13 +199,13 @@ public class Combat {
 
             int cardAttack = topCard.getCardAttack();
             int cardDefense = topCard.getCardDefense();
-            int enemyCardAttack = enemyTopCard.getCardAttack();
-            int enemyCardDefense = enemyTopCard.getCardDefense();
+            int enemyCardAttack = enemyTopCard.getEnemyCardAttack();
+            int enemyCardDefense = enemyTopCard.getEnemyCardDefense();
 
             int playerDamage, enemyDamage;
 
             // Player damage calculations
-            if(topCard.getCardAttribute().trim().equals("Virus") && !enemyTopCard.getCardAttribute().trim().equals("Antivirus"))
+            if(topCard.getCardAttribute().trim().equals("Virus") && !enemyTopCard.getEnemyCardAttribute().trim().equals("Antivirus"))
             {
                 playerDamage = (cardAttack * 2) - enemyCardDefense;
             }
@@ -213,7 +213,7 @@ public class Combat {
             {
                 playerDamage = (cardAttack + 1) - enemyCardDefense;
             }
-            else if(enemyTopCard.getCardAttribute().trim().equals("Hardware"))
+            else if(enemyTopCard.getEnemyCardAttribute().trim().equals("Hardware"))
             {
                 playerDamage = cardAttack - (enemyCardDefense + 1);
             }
@@ -223,11 +223,11 @@ public class Combat {
             }
 
             // Enemy damage calculations
-            if(enemyTopCard.getCardAttribute().trim().equals("Virus") && !topCard.getCardAttribute().trim().equals("Antivirus"))
+            if(enemyTopCard.getEnemyCardAttribute().trim().equals("Virus") && !topCard.getCardAttribute().trim().equals("Antivirus"))
             {
                 enemyDamage = (enemyCardAttack * 2) - cardDefense;
             }
-            else if(enemyTopCard.getCardAttribute().trim().equals("Software"))
+            else if(enemyTopCard.getEnemyCardAttribute().trim().equals("Software"))
             {
                 enemyDamage = (enemyCardAttack + 1) - cardDefense;
             }

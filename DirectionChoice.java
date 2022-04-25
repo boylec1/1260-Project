@@ -85,8 +85,6 @@ public class DirectionChoice
         else
         {
             // Boss Battle
-            JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
-                    , JOptionPane.PLAIN_MESSAGE);
             Enemy enemy = new Enemy();
             enemy.boss3(playerDeck, playerHealth, consumable);
         }
@@ -144,9 +142,7 @@ public class DirectionChoice
         }
         else if(result == JOptionPane.NO_OPTION)
         {
-            Event event4
-
-                    = new Event(playerDeck, playerHealth,consumable);
+            Event event4 = new Event(playerDeck, playerHealth,consumable);
 
             // Boss Battle
             JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"

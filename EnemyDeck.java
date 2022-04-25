@@ -3,7 +3,7 @@ import java.util.Collections;
 
 public class EnemyDeck
 {
-    private ArrayList<Card> cards = new ArrayList<>();
+    private ArrayList<EnemyCard> cards = new ArrayList<>();
     private int deckCapacity;
     private boolean[] isCardDealt;
     private int numberOfCards = 0;
@@ -13,7 +13,7 @@ public class EnemyDeck
     {
         for(int i = 0; i < 10; i++)
         {
-            Card newCard = new Card();
+            EnemyCard newCard = new EnemyCard();
             cards.add(newCard);
         }
         this.deckCapacity = cards.size();
@@ -25,7 +25,7 @@ public class EnemyDeck
     {
         for(int i = 0; i < manualDeckCapacity; i++)
         {
-            Card newCard = new Card();
+            EnemyCard newCard = new EnemyCard();
             cards.add(newCard);
         }
         this.deckCapacity = cards.size();
@@ -34,7 +34,7 @@ public class EnemyDeck
     }
 
     //getter for cards
-    public ArrayList<Card> getCards()
+    public ArrayList<EnemyCard> getCards()
     {
         return this.cards;
     }
@@ -57,12 +57,12 @@ public class EnemyDeck
         return this.numberOfCards;
     }
 
-    public void add(Card card)
+    public void add(EnemyCard card)
     {
         cards.add(card);
     }
 
-    public Card getTopCard() {
+    public EnemyCard getTopCard() {
         if (currentCard < deckCapacity)
         {
             isCardDealt[currentCard] = true;

@@ -1,9 +1,9 @@
-import java.util.Scanner;
+import java.io.*;
 import javax.swing.*;
 
 public class Cutscene
 {
-    private String name;
+    static String name;
 
     // Intro cutscene describing the setting and the goal of the player as well as the exterior of the castle
     public void cutscene1()
@@ -31,10 +31,28 @@ public class Cutscene
                 "Your mission is to defeat the Bot Lord.\n" +
                 "You will find him in the top level of his castle\n", "Nice to meet you, " + this.name + "!"
                 , JOptionPane.INFORMATION_MESSAGE);
+
         JOptionPane.showMessageDialog(null,"The loading screen dissolves, and a scene morphs " +
                 "from the darkness.", "Good luck!", JOptionPane.INFORMATION_MESSAGE);
     }
 
+    public void getBackpack(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
+    {
+        JOptionPane.showMessageDialog(null,"\n" +
+                "One last thing before you go!\n", "Wait, " +
+                "before you go...", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,"You received a Backpack!"
+                , "Hope it helps!", JOptionPane.WARNING_MESSAGE);
+
+        consumable.addConsumableCPU();
+        consumable.addConsumableHammer();
+        consumable.addConsumableBattery();
+
+        JOptionPane.showMessageDialog(null,"\n" +
+                "This pack contains items that will help you in your mission.\n" +
+                "Good Luck, hero!", "We believe in you!", JOptionPane.INFORMATION_MESSAGE);
+
+    }
     // Describing the castle interior after defeating the first boss
     public void cutscene2()
     {
@@ -189,6 +207,20 @@ public class Cutscene
 
         JOptionPane.showMessageDialog(null, "GAME OVER!", "Buh-bye."
                 , JOptionPane.ERROR_MESSAGE);
+        try
+        {
+            File roguelike = new File("Nexthero.txt");
+            FileWriter fwriter = new FileWriter(roguelike, true);
+            PrintWriter outputFile = new PrintWriter(fwriter);
+            outputFile.println(name + " has fallen. Another will rise.");
+            outputFile.close();
+            JOptionPane.showMessageDialog(null, "Another will come.");
+
+        }
+        catch(IOException e)
+        {
+            System.out.println(e.getMessage());
+        }
         System.exit(0);
     }
 
