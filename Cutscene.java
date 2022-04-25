@@ -47,6 +47,8 @@ public class Cutscene
         consumable.addConsumableCPU();
         consumable.addConsumableHammer();
         consumable.addConsumableBattery();
+        consumable.addConsumableCookie();
+        consumable.addConsumableJavaCoffee();
 
         JOptionPane.showMessageDialog(null,"\n" +
                 "This pack contains items that will help you in your mission.\n" +
