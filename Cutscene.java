@@ -154,7 +154,7 @@ public class Cutscene
     {
         JOptionPane.showMessageDialog(null, "A large figure looms over you, and as you get a " +
                 "closer look you see a large amalgamation of computers and screens\n" +
-                ", all connected into the central point which you assume is the router.\n" +
+                "all connected into the central point which you assume is the router.\n" +
                 "It's large screens comes to life as it roars in a broken and glitched cry of rage."
                 , "So evil...", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -267,7 +267,7 @@ public class Cutscene
 
     public static void cutsceneFilezillaMinion()
     {
-        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+        JOptionPane.showMessageDialog(null, "You hear a strange noise, and turn to see a large creature that seems to be made of memory. As it spots you, it stands to its full height and charges."
                 , "Filezilla's Minion", JOptionPane.PLAIN_MESSAGE);
     }
 
