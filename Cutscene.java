@@ -1,5 +1,8 @@
-import java.io.*;
 import javax.swing.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 public class Cutscene
 {
@@ -17,7 +20,7 @@ public class Cutscene
         JOptionPane.showMessageDialog(null, "You awake from the pitch black of a deep slumber " +
                 "to a flash of light.\n A loading screen appears in your vision", "Real-time UI overlay!"
                 , JOptionPane.INFORMATION_MESSAGE);
-        JOptionPane.showMessageDialog(null, "----------Reboot Complete----------\n\n\n"+
+        JOptionPane.showMessageDialog(null, "      ----------Reboot Complete----------\n\n\n"+
                 "Enter your name to access your mission", "Finally, someone showed up..."
                 , JOptionPane.INFORMATION_MESSAGE);
     }
@@ -139,7 +142,7 @@ public class Cutscene
     {
         JOptionPane.showMessageDialog(null, "Standing in front of an open door to a private " +
                 "office is a large bot.\n Its polo shirt has pockets with pens sticking out, and its khakis are " +
-                "well-pleated.\n\n It rushes forward shouting and waving TPS reports at you."
+                "well-pleated. A nametag reads \"Will\"\n\n It rushes forward shouting and waving TPS reports at you."
                 , "No overtime, no overtime!", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -155,8 +158,9 @@ public class Cutscene
     {
         JOptionPane.showMessageDialog(null, "A large figure looms over you, and as you get a " +
                 "closer look you see a large amalgamation of computers and screens\n" +
-                ", all connected into the central point which you assume is the router.\n" +
-                "It's large screens comes to life as it roars in a broken and glitched cry of rage."
+                "all connected into the central point which you assume is the router.\n" +
+                "It's large screens comes to life as it roars in a broken and glitched cry of rage.\n\n\n" +
+                "The dreaded Filezilla blocks your path."
                 , "So evil...", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -209,6 +213,7 @@ public class Cutscene
 
         JOptionPane.showMessageDialog(null, "GAME OVER!", "Buh-bye."
                 , JOptionPane.ERROR_MESSAGE);
+
         try
         {
             File roguelike = new File("Nexthero.txt");
@@ -216,13 +221,15 @@ public class Cutscene
             PrintWriter outputFile = new PrintWriter(fwriter);
             outputFile.println(name + " has fallen. Another will rise.");
             outputFile.close();
-            JOptionPane.showMessageDialog(null, "Another will come.");
+            JOptionPane.showMessageDialog(null, "Another will come."
+                    , "Come help us cheer on the next one!", JOptionPane.PLAIN_MESSAGE);
 
         }
         catch(IOException e)
         {
             System.out.println(e.getMessage());
         }
+
         System.exit(0);
     }
 
@@ -248,7 +255,7 @@ public class Cutscene
     // Fight an enemy
     public static void fightEnemy()
     {
-        JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
+        JOptionPane.showMessageDialog(null, "Enemy Encounter!", "Time to fight!"
                 , JOptionPane.PLAIN_MESSAGE);
     }
 
@@ -281,7 +288,7 @@ public class Cutscene
 
     public static void cutsceneFilezillaMinion()
     {
-        JOptionPane.showMessageDialog(null, "PLACEHOLDER DESCRIPTION"
+        JOptionPane.showMessageDialog(null, "You hear a strange noise, and turn to see a large creature that seems to be made of memory. As it spots you, it stands to its full height and charges."
                 , "Filezilla's Minion", JOptionPane.PLAIN_MESSAGE);
     }
 

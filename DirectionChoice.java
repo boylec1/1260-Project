@@ -44,21 +44,22 @@ public class DirectionChoice
             JOptionPane.showMessageDialog(null,"You walk down the path to the left."
                     , "Ooh, they're going left.", JOptionPane.PLAIN_MESSAGE);
 
-            Event event1 = new Event(playerDeck, playerHealth,consumable);
-
             // Boss Battle
             Cutscene.cutscene3();
-
             Enemy enemy = new Enemy(); //You fight kitchen boss anyway but at least you got an item first
             enemy.boss2(playerDeck, playerHealth, consumable); //kitchen boss
         }
         else
         {
-            // Boss Battle
             JOptionPane.showMessageDialog(null, "You walk down the path to the right."
                     , "To the right!", JOptionPane.PLAIN_MESSAGE);
-            Enemy enemy = new Enemy();
 
+            // Event
+            Event event1 = new Event(playerDeck, playerHealth,consumable);
+
+            // Boss Battle
+            Cutscene.cutscene3();
+            Enemy enemy = new Enemy();
             enemy.boss2(playerDeck, playerHealth, consumable); //kitchen boss
         }
     }
@@ -75,6 +76,7 @@ public class DirectionChoice
         {
             // Event
             Event event2 = new Event(playerDeck, playerHealth,consumable);
+
             // Boss Battle
             Cutscene.cutscene4();
             Enemy enemy = new Enemy();
@@ -83,8 +85,7 @@ public class DirectionChoice
         else
         {
             // Boss Battle
-            JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
-                    , JOptionPane.PLAIN_MESSAGE);
+            Cutscene.cutscene4();
             Enemy enemy = new Enemy();
             enemy.boss3(playerDeck, playerHealth, consumable);
         }
@@ -100,19 +101,20 @@ public class DirectionChoice
 
         if(result == JOptionPane.YES_OPTION)
         {
-
+            // Event
             Event event3 = new Event(playerDeck, playerHealth,consumable);
 
             // Boss Battle
             Cutscene.cutscene5();
+            Cutscene.cutscene6();
             Enemy enemy = new Enemy();
             enemy.boss4(playerDeck, playerHealth, consumable);
         }
         else
         {
             // Boss Battle
-            JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
-                    , JOptionPane.PLAIN_MESSAGE);
+            Cutscene.cutscene5();
+            Cutscene.cutscene6();
             Enemy enemy = new Enemy();
             enemy.boss4(playerDeck, playerHealth, consumable);
         }
@@ -129,34 +131,30 @@ public class DirectionChoice
 
         if(result == JOptionPane.YES_OPTION)
         {
-
+            // Event
             Event event4 = new Event(playerDeck, playerHealth,consumable);
 
             JOptionPane.showMessageDialog(null, "The room examined, you turn to up the stairs " +
                     "from before.", "Back on track!", JOptionPane.PLAIN_MESSAGE);
 
             // Boss Battle
-            Cutscene.cutscene6();
+
             Enemy enemy = new Enemy();
             enemy.boss5(playerDeck, playerHealth, consumable);
         }
         else if(result == JOptionPane.NO_OPTION)
         {
-            Event event4 = new Event(playerDeck, playerHealth,consumable);
-
             // Boss Battle
-            JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
-                    , JOptionPane.PLAIN_MESSAGE);
-            Cutscene.cutscene6();
+
             Enemy enemy = new Enemy();
             enemy.boss5(playerDeck, playerHealth, consumable);
         }
         else
         {
+            // Event
+            Event event4 = new Event(playerDeck, playerHealth,consumable);
+
             // Boss Battle
-            JOptionPane.showMessageDialog(null, "Fight Enemy", "Time to fight!"
-                    , JOptionPane.PLAIN_MESSAGE);
-            Cutscene.cutscene6();
             Enemy enemy = new Enemy();
             enemy.boss5(playerDeck, playerHealth, consumable);
         }
@@ -173,11 +171,14 @@ public class DirectionChoice
         if(result == JOptionPane.YES_OPTION)
         {
             // Final Boss Battle
+            Cutscene.cutscene7();
+
             JOptionPane.showMessageDialog(null, "Final Boss Fight", "It's the boss!"
                     , JOptionPane.PLAIN_MESSAGE);
-            Cutscene.cutscene7();
+
             Enemy enemy = new Enemy();
             enemy.finalBoss(playerDeck, playerHealth, consumable);
+
             Cutscene.cutsceneEnd();
         }
         else
