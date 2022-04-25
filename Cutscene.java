@@ -138,7 +138,7 @@ public class Cutscene
     {
         JOptionPane.showMessageDialog(null, "Standing in front of an open door to a private " +
                 "office is a large bot.\n Its polo shirt has pockets with pens sticking out, and its khakis are " +
-                "well-pleated.\n\n It rushes forward shouting and waving TPS reports at you."
+                "well-pleated. A nametag reads \"Will\"\n\n It rushes forward shouting and waving TPS reports at you."
                 , "No overtime, no overtime!", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -155,7 +155,8 @@ public class Cutscene
         JOptionPane.showMessageDialog(null, "A large figure looms over you, and as you get a " +
                 "closer look you see a large amalgamation of computers and screens\n" +
                 "all connected into the central point which you assume is the router.\n" +
-                "It's large screens comes to life as it roars in a broken and glitched cry of rage."
+                "It's large screens comes to life as it roars in a broken and glitched cry of rage.\n\n" +
+                "The dreaded Filezilla blocks your way."
                 , "So evil...", JOptionPane.INFORMATION_MESSAGE);
     }
 
