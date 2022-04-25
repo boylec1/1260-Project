@@ -1,17 +1,9 @@
-import javax.swing.*;
 import java.util.*;
 
 public class Consumable
 {
-
     // Field
-    private String name = "";
-    private String effect = "";
-    private double damage;
-    private int healing = 0;
     public ArrayList<String> consumablePack = new ArrayList<>();
-
-
 
     public void addConsumableBattery()
     {
@@ -43,6 +35,26 @@ public class Consumable
         consumablePack.remove("Hammer");
     }
 
+    public void addConsumableCookie()
+    {
+        consumablePack.add("Cookie");
+    }
+
+    public void removeConsumableCookie()
+    {
+        consumablePack.remove("Cookie");
+    }
+
+    public void addConsumableJavaCoffee()
+    {
+        consumablePack.add("Java");
+    }
+
+    public void removeConsumableJavaCoffee()
+    {
+        consumablePack.remove("Java");
+    }
+
     public void displayConsumables()
     {
         System.out.println("Consumables you have: ");
@@ -51,11 +63,4 @@ public class Consumable
             System.out.println(consumables);
         }
     }
-
-
-    public void consumableMenu(Deck playerDeck, EnemyDeck enemyDeck, int enemyHP, int playerHealth, Consumable consumable)
-    {
-
-    }
-
 }
