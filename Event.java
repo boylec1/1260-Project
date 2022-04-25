@@ -5,15 +5,15 @@ import java.util.ArrayList;
 public class Event
 {
 
-    private boolean randomEvent;
+    private int randomEvent;
 
     public Event(Deck playerDeck, PlayerStats playerHealth, Consumable consumable)
     {
         Random rand = new Random();
-        this.randomEvent = rand.nextBoolean();
+        this.randomEvent = rand.nextInt(5)+1;
 
         //Randomizes event
-        if (randomEvent == true)
+        if (randomEvent <=3)
         {
 
             JOptionPane.showMessageDialog(null,"You spot something on the ground and decide to" +
@@ -70,23 +70,18 @@ public class Event
             switch (randomMinion)
             {
                 case 1:
-                    Cutscene.cutsceneDoormanMinion();
                     enemy.doormanMinion(playerDeck, playerHealth,consumable);
                     break;
                 case 2:
-                    Cutscene.cutsceneChefMinion();
                     enemy.chefMinion(playerDeck, playerHealth,consumable);
                     break;
                 case 3:
-                    Cutscene.cutsceneOfficeMinion();
                     enemy.officeMinion(playerDeck, playerHealth,consumable);
                     break;
                 case 4:
-                    Cutscene.cutsceneFilezillaMinion();
                     enemy.filezillaMinion(playerDeck, playerHealth,consumable);
                     break;
                 case 5:
-                    Cutscene.cutsceneServerusMinion();
                     enemy.serverusMinion(playerDeck, playerHealth,consumable);
                     break;
             }
