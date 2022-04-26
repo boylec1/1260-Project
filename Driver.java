@@ -9,7 +9,7 @@ public class Driver
         Cutscene.enterName(); // Enter name
         Deck playerDeck = new Deck();
         PlayerStats playerHealth = new PlayerStats();
-
+        Cutscene.getBackpack(playerDeck, playerHealth, consumable);
         direction.directionChoice0(playerDeck, playerHealth, consumable); // Choice of entering castle or turning around
         direction.directionChoice1(playerDeck, playerHealth, consumable); // Hallway choice: left or right
         direction.directionChoice2(playerDeck, playerHealth, consumable); // Hallway choice: left or right
